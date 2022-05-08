@@ -15,7 +15,7 @@ model User {
   name        String    @db.VarChar(100)
   email       String    @unique
   password    String
-  img_uri     String    @db.VarChar(255)
+  img_uri     String?   @db.VarChar(255)
   posts       Post[]
   comment     Comment[]
   liks        Like[]
