@@ -5,6 +5,7 @@ import { validationResult } from 'express-validator';
 import { userValidationRules } from 'middleware/validtor'
 
 export default async function handler(req, res) {
+    if (req.method !== 'POST') return res.status(400).json()
     // user validation rules
     await userValidationRules(req, res)
     // user error
@@ -12,7 +13,6 @@ export default async function handler(req, res) {
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.array() })
     }
-    
     const {name, email, password} = req.body;
     try {
         const hashPassowrd = await bcrypt.hash(password, 10);

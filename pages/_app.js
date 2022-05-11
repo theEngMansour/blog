@@ -1,3 +1,4 @@
+import msgs from 'site-settings/site-translations';
 import { IntlProvider } from 'react-intl';
 import '../styles/globals.css';
 
