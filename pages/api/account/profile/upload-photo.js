@@ -8,7 +8,7 @@ apiRoute.post(async (req, res) => {
     try{
         const uploadPhoto = await prisma.user.update({
             data: {
-                img_uri: '/public/images/' + req.file.filename
+                img_uri: '/images/' + req.file.filename
             },
             where: {
                 id: req.user.id

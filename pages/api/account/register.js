@@ -13,6 +13,7 @@ export default async function handler(req, res) {
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.array() })
     }
+    
     const {name, email, password} = req.body;
     try {
         const hashPassowrd = await bcrypt.hash(password, 10);

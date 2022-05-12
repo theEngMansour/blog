@@ -11,6 +11,7 @@
   "emailNotEmpty": "البريد الإلكتروني مطلوب",
   "passwordNotEmpty": "كلمة المرور مطلوبة",
   "passwordIsLength": "كلمة المرور يجب أن تكون أكثر من خمسة محارف",
+  "updateProfile": "تم تعديل البيانات الشخصية",
   "title.login": "تسجيل الدخول",
   "title.register": "حساب جديد",
   "title.ask": "أضف مشاركة",
