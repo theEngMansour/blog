@@ -2,7 +2,7 @@ import prisma from 'lib/prisma';
 import bcrypt from 'bcrypt';
 import langs from 'site-settings/site-translations';
 import { validationResult } from 'express-validator';
-import { userValidationRules } from 'middleware/validtor'
+import { userValidationRules } from 'middleware/validtor';
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') return res.status(400).json()
@@ -19,7 +19,7 @@ export default async function handler(req, res) {
         const hashPassowrd = await bcrypt.hash(password, 10);
         const findEmail = await prisma.user.findUnique({where: {email}});
         if(findEmail === null) {
-            const users = await prisma.user.create({
+            const user = await prisma.user.create({
                 data: {
                     name, 
                     email,
