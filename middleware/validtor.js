@@ -20,6 +20,14 @@ export const updateUserValidationRules = initMiddleware(
   ], validationResult)
 )
 
+export const postValidationRules = initMiddleware(
+  validateMiddleware([
+    check('title').notEmpty().withMessage(langs.ar.titleNotEmpty),
+    check('contents').notEmpty().withMessage(langs.ar.contentsNotEmpty),
+    check('steps').notEmpty().withMessage(langs.ar.stepsNotEmpty),
+  ], validationResult)
+)
+
 /*     
 check('day').isInt({ min: 1, max: 31}),
 check('gender').isIn(['male','female']),
