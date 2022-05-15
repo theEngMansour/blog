@@ -6,7 +6,7 @@ import { validationResult } from 'express-validator';
 import { updateUserValidationRules } from 'middleware/validtor'
 
 async function handler(req, res) {
-    
+    if (req.method !== 'PUT') return res.status(400).json({message: 'method no put'})
     await updateUserValidationRules(req, res)
     const errors = validationResult(req)
     if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
