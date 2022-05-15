@@ -2,7 +2,10 @@ import prisma from 'lib/prisma';
 
 export default async function handler(req, res) {
     try {
-        const posts = await prisma.post.findMany({
+        const post = await prisma.post.findUnique({
+            where: {
+                id: Number(req.query.id)
+            },
             include: {
                 user: {
                     select: {
@@ -13,8 +16,8 @@ export default async function handler(req, res) {
                 },
                 images: true
             }
-        });
-        res.status(200).json(posts);
+        })
+        res.status(200).json(post);
     } catch(e) {
         res.status(500).json(e)
     }
