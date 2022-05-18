@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import Button from '@mui/material/Button';
 
 export default function Home() {
   return (
@@ -10,9 +11,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="#">Container!</a>
-        </h1>
+        <Button variant="text" className="md:bg-red-700 sm:bg-blue-700" color="primary">
+          s
+        </Button>
         <p className={styles.description}>
          by{' '}
           <code className={styles.code}>BeeMedia</code>
