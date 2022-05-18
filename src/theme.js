@@ -16,7 +16,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    // fontFamily: 'NotoRegular',
+    fontFamily: 'NotoRegular',
   }
 });
 

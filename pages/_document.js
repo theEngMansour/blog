@@ -19,7 +19,7 @@ export default class MyDocument extends Document {
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {this.props.emotionStyleTags}
         </Head>
-        <body dir="rtl">
+        <body dir="rtl" style={{backgroundColor: '#F4F4F5'}}>
           <Main />
           <NextScript />
         </body>
