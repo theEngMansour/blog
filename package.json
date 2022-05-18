@@ -12,6 +12,7 @@
     "@emotion/react": "^11.9.0",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.8.0",
     "@mui/material": "^5.8.0",
     "@prisma/client": "^3.12.0",
     "axios": "^0.26.1",
