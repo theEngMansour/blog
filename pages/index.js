@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { Lists } from 'components/about';
+import { List } from 'components/about';
 import { MainLayout } from 'layouts';
 
 const listData = [
@@ -46,7 +46,7 @@ export default function Home() {
           <br></br>
           {
             listData.map((items, index) => (
-              <Lists 
+              <List
                 key={index}
                 title={items.title}
                 content={items.content}

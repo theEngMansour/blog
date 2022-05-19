@@ -1,5 +1,5 @@
-import Lists from "./list";
+import List from "./list";
 
 export {
-    Lists
+    List
 }
