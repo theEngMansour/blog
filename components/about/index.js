@@ -1,4 +1,4 @@
-import List from "./list";
+import Lists from "./list";
 
 export {
     Lists
