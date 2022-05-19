@@ -9,7 +9,7 @@ const listData = [
     content: "هذا المجتمع ليس منتدى، بل مجموعة من المجتمعات المتخصصة تتم إدارته بشكل", 
     number: 1, 
     icon: (
-      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
+      <svg fill="none" stroke="currentColor"  stroke-width="2" className="w-12 h-12" viewBox="0 0 24 24">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
        </svg>
     )
@@ -19,7 +19,7 @@ const listData = [
     content: "هذا المجتمع ليس منتدى، بل مجموعة من المجتمعات المتخصصة تتم إدارته بشكل", 
     number: 2, 
     icon: (
-      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
+      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" className="w-12 h-12" viewBox="0 0 24 24">
        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
       </svg>
     )
@@ -29,7 +29,7 @@ const listData = [
     content: "هذا المجتمع ليس منتدى، بل مجموعة من المجتمعات المتخصصة تتم إدارته بشكل", 
     number: 3, 
     icon: (
-      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
+      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" className="w-12 h-12" viewBox="0 0 24 24">
         <circle cx="12" cy="5" r="3"></circle>
         <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
       </svg>
