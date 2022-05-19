@@ -1,10 +1,10 @@
 import React from 'react';
 
 export default function Lists(props) {
-    const {title, content, number, icon, key} = props;
+    const {title, content, number, icon} = props;
     return (
         <React.Fragment>
-            <div key={key} className="flex relative sm:items-center md:w-2/3 mx-auto">
+            <div className="flex relative sm:items-center md:w-2/3 mx-auto">
                 <div className="h-full w-6 absolute flex items-center justify-center">
                 <div className="h-full w-1 bg-gray-200 pointer-events-none"></div>
                 </div>
