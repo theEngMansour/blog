@@ -12,6 +12,11 @@
     src: url(../public/fonts/NotoSansArabic-Regular.ttf); 
 }
 
+@font-face { 
+    font-family: "Jannat"; 
+    src: url(../public/fonts/Jannat.ttf); 
+}
+
 .ck-editor__editable:not(.ck-editor__nested-editable) {
     min-height: 160px;
 }

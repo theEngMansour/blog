@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import {TextField, FormControl} from '@mui/material';
 import { useIntl } from 'react-intl';
 
-export default function Field({ name, label, onChange, variant = 'outlined', ...props }) {
+export default function Field({ name, label, onChange, textError,  variant = 'outlined', ...props }) {
   const { formatMessage } = useIntl()
   return (
     <Box
@@ -11,10 +11,9 @@ export default function Field({ name, label, onChange, variant = 'outlined', ...
       noValidate
       autoComplete="off"
     >
+
       <TextField 
-        className="w-[250px] sm:w-[390px]"
         name={name}
-        id="outlined-basic" 
         label={formatMessage({
             id: label,
             defaultMessage: label
@@ -22,6 +21,7 @@ export default function Field({ name, label, onChange, variant = 'outlined', ...
         variant={variant} 
         onChange={e => onChange(e.target.value)}
         {...props}
+        helperText={textError}
       />
     </Box>
   );

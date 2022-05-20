@@ -1,5 +1,5 @@
-import { Container, Paper, CssBaseline, Box, Typography, Link as MuiLink} from '@mui/material';
-import Link from 'next/link';
+import { Container, Paper, CssBaseline} from '@mui/material';
+import Image from 'next/image';
 import { FormattedMessage } from 'react-intl';
 /* 
     priamry: #45b97c
@@ -7,24 +7,17 @@ import { FormattedMessage } from 'react-intl';
     balck: #424447
 */
 
-export default function Auth({children, width = 'sm'}) {
+export default function Auth({children, width = 'sm', title}) {
     return (
-        <div className="flex flex-col min-h-[100vh] bg-[#f1f1f5]">
+        <div className="flex flex-col min-h-[100vh] bg-[#f1f0f5]">
             <Container component="main" maxWidth={width}>
                 <CssBaseline/>
-                <Paper sx={{ p: 3, display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}} variant={0}>
+                <div className="flex justify-center flex-col items-center mt-10 mb-10">
+                    <Image src="/logo/z.png" width={'200px'} height={'70px'} alt="logo"/>
+                    <h2 style={{ fontFamily: "Jannat"}} className="text-center text-[#424447] m-0 select-none mt-4"><FormattedMessage id={title}/></h2>
+                </div>
+                <Paper  variant={0} sx={{ p: 3, display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
                     {children}
-                    <Box mt={5}>
-                        <Typography variant="body2" color="textSecondary" align="center" className="mb-4">
-                            <FormattedMessage id='copyright'/>
-                            {' '}
-                            <Link href="/" passHref>
-                                <MuiLink className="text-[#44c455]" href="/">
-                                    <FormattedMessage id='app.name'/>
-                                </MuiLink>
-                            </Link>
-                        </Typography>
-                    </Box>
                 </Paper>
             </Container>
         </div>

@@ -1,57 +1,80 @@
 import React, {useState} from 'react';
-import Image from 'next/image';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Button, Box, Typography, Link as MuiLink } from '@mui/material';
+import { Button, Box, Typography, Avatar, Link as MuiLink } from '@mui/material';
 import { AuthLayout } from 'layouts';
-import { TextField } from 'components/inputs'
+import { TextField } from 'components/inputs';
 import { FormattedMessage } from 'react-intl';
+import { register } from 'hooks/useAuth';
 
 export default function Register() {
   const [name, setName] = useState()
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
+  const [loading, setLoading] = useState(false)
+  const [hasError, setHasError] = useState(false)
+    
+  const onSubmit = async (event) => {
+    event.preventDefault()
+    if(loading) return
+    setLoading(true)
+    try {
+        register({name, email, password})
+    } catch (e) {
+        setHasError(true)
+        setLoading(false)
+    }
+  }
+
+
   return (
     <React.Fragment>
         <Head>
             <title>إنشاء حساب</title>
         </Head>
-        <div className="flex justify-center flex-col items-center mt-20 mb-10">
-            <Image src="/logo/z.png" width={'200px'} height={'70px'} alt="logo"/>
-        </div>
-        <AuthLayout>
-            <h2 className="text-center text-[#424447] m-0 mb-5"><FormattedMessage id={'title.register'}/></h2>
-            <TextField 
-                required
-                label="input.name"
-                type="text"
-                autoComplete="name" 
-                onChange={setName}
-            />
-            <TextField 
-                sx={{mt: 2}}
-                required
-                label="input.email"
-                type="email"
-                autoComplete="email" 
-                onChange={setEmail}
-            />
-            <TextField 
-                sx={{mt: 2}}
-                required
-                label="input.password"
-                type="email"
-                autoComplete="email" 
-                onChange={setPassword}
-            />
-            <Button 
-                className="mt-4 w-[60%] text-white hover:bg-[#44c455]"
-                type="submit"
-                variant="contained"
-                color="primary"
-            >
-                <FormattedMessage id={'btn.continue'}/>
-            </Button>
+        <AuthLayout title="title.register">
+            <div className="flex justify-center my-9">
+                <Avatar 
+                    className="bg-[#d4d4d6]"
+                    alt="Travis Howard"
+                    sx={{ width: 100, height: 100 }}
+                />
+            </div>
+            <form onSubmit={onSubmit}>
+                <TextField 
+                    className="w-[250px] sm:w-[390px]"
+                    required
+                    label="input.name"
+                    type="text"
+                    onChange={setName}
+                />
+                <TextField 
+                    className="w-[250px] sm:w-[390px]"
+                    sx={{mt: 2}}
+                    required
+                    label="input.email"
+                    type="email"
+                    onChange={setEmail}
+                />
+                <TextField 
+                    className="w-[250px] sm:w-[390px]"
+                    sx={{mt: 2}}
+                    required
+                    label="input.password"
+                    type="password"
+                    onChange={setPassword}
+                />
+                <div className="flex justify-center">
+                    <Button 
+                        className="mt-4 w-[40%] text-white hover:bg-[#44c455]"
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                    >
+                        <FormattedMessage id={'btn.continue'}/>
+                    </Button>
+                </div>
+            </form>  
             <Box marginTop={2}>
                 <HaveAccount/>
             </Box>      
