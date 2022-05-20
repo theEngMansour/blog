@@ -16,10 +16,10 @@ export default function Register() {
         <Head>
             <title>الملف الشخصي</title>
         </Head>
-        <AuthLayout>
+        <AuthLayout title="title.profile">
             <Grid container spacing={2}>
                 <Grid item xs={12}>
-                    <div className="flex justify-center ">
+                    <div className="flex justify-center my-9">
                         <Badge
                             overlap="circular"
                             anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
