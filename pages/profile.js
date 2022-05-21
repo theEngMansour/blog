@@ -29,7 +29,7 @@ export default function Register() {
                         >
                             <Avatar 
                                 className="bg-[#d4d4d6]"
-                                alt="Travis Howard"
+                                alt="Mansour Ahmed"
                                 sx={{ width: 100, height: 100 }}
                             />
                         </Badge>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import * as yup from 'yup';
@@ -14,16 +14,22 @@ import { TextField } from 'components/inputs';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { register } from 'hooks/useAuth';
 import { Formik } from 'formik';
-import { Loading } from 'components';
-import { useRouter } from 'next/router'
+import { Loading, Alert } from 'components';
+import { useRouter } from 'next/router';
 
 export default function Register() {
     const [loading, setLoading] = useState(false)
-    const [Alert, setAlert] = useState(false)
+    const [showAlert, setShowAlert] = useState(false)
 
     const { formatMessage } = useIntl()
     const router = useRouter()
   
+    useEffect(() => {
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
+      }, [showAlert])
+    
     const validationSchema = yup.object({
         name: yup
             .string()
@@ -65,7 +71,7 @@ export default function Register() {
         } catch (e) {
             if (e.response.status === 400) {
                 setLoading(false)
-                setAlert(true)
+                setShowAlert(true)
             } else {
                 console.log(e.message);
                 setLoading(false)
@@ -86,10 +92,17 @@ export default function Register() {
             </Head>
             <Loading open={loading} /* handleClose={handleClose} */ />
             <AuthLayout title="title.register">
+                {showAlert &&
+                    <Alert 
+                        type="error" 
+                        title={formatMessage({id: 'input.email', defaultMessage: 'input.email'})}
+                        text={formatMessage({id: 'loginError', defaultMessage: 'loginError'})}
+                    />
+                }
                 <div className="flex justify-center my-9">
                     <Avatar 
                         className="bg-[#d4d4d6]"
-                        alt="Travis Howard"
+                        alt="Mansour Ahmed"
                         sx={{ width: 100, height: 100 }}
                     />
                 </div>
@@ -102,7 +115,7 @@ export default function Register() {
                     validationSchema={validationSchema}
                     onSubmit = {(values, {resetForm}) => {
                         onSubmit(values);
-                        resetForm({values: ''})
+                        resetForm({values: ""})
                     }}
                 >
                 {

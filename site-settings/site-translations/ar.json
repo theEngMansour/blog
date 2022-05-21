@@ -27,6 +27,7 @@
   "title.tags": "التصنيفات",
   "title.profile": "الملف الشخصي",
   "input.name": "الاسم",
+  "email.password":"البريد الإلكتروني - كلمة المرور",
   "input.first": "الاسم الاول",
   "input.last": "اسم العائلة",
   "input.email": "البريد الإلكتروني",

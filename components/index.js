@@ -1,5 +1,6 @@
 import Loading from './Loading';
-
+import Alert from './Alert';
 export {
-    Loading
+    Loading,
+    Alert
 }
