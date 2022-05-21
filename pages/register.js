@@ -1,88 +1,170 @@
 import React, {useState} from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Button, Box, Typography, Avatar, Link as MuiLink } from '@mui/material';
+import * as yup from 'yup';
+import { 
+    Button, 
+    Box, 
+    Typography, 
+    Avatar, 
+    Link as MuiLink 
+} from '@mui/material';
 import { AuthLayout } from 'layouts';
 import { TextField } from 'components/inputs';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { register } from 'hooks/useAuth';
+import { Formik } from 'formik';
+import { Loading } from 'components';
+import { useRouter } from 'next/router'
 
 export default function Register() {
-  const [name, setName] = useState()
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
-  const [loading, setLoading] = useState(false)
-  const [hasError, setHasError] = useState(false)
-    
-  const onSubmit = async (event) => {
-    event.preventDefault()
-    if(loading) return
-    setLoading(true)
-    try {
-        register({name, email, password})
-    } catch (e) {
-        setHasError(true)
-        setLoading(false)
+    const [loading, setLoading] = useState(false)
+    const [Alert, setAlert] = useState(false)
+
+    const { formatMessage } = useIntl()
+    const router = useRouter()
+  
+    const validationSchema = yup.object({
+        name: yup
+            .string()
+            .nullable()
+            .required(formatMessage({
+                id: 'check.name',
+                defaultMessage: 'check.name'
+            })),
+        email: yup
+            .string()
+            .nullable()
+            .email(formatMessage({
+                id: 'check.is.email',
+                defaultMessage: 'check.is.email'
+            }))
+            .required(formatMessage({
+                id: 'check.email',
+                defaultMessage: 'check.email'
+            })),
+        password: yup
+            .string()
+            .nullable()
+            .min(5, formatMessage({
+                id: 'check.number.password',
+                defaultMessage: 'check.number.password'
+            }))
+            .required(formatMessage({
+                id: 'check.password',
+                defaultMessage: 'check.password'
+            }))
+    })
+
+    const onSubmit = async (values) => {
+        setLoading(true) 
+        try {
+            await register(values)
+            setTimeout(() => setLoading(false, 1005))
+            router.push('/')
+        } catch (e) {
+            if (e.response.status === 400) {
+                setLoading(false)
+                setAlert(true)
+            } else {
+                console.log(e.message);
+                setLoading(false)
+            }
+        }
     }
-  }
 
+    /*
+        const handleClose = () => {
+            console.log('type')
+        }; 
+    */
 
-  return (
-    <React.Fragment>
-        <Head>
-            <title>إنشاء حساب</title>
-        </Head>
-        <AuthLayout title="title.register">
-            <div className="flex justify-center my-9">
-                <Avatar 
-                    className="bg-[#d4d4d6]"
-                    alt="Travis Howard"
-                    sx={{ width: 100, height: 100 }}
-                />
-            </div>
-            <form onSubmit={onSubmit}>
-                <TextField 
-                    className="w-[250px] sm:w-[390px]"
-                    required
-                    label="input.name"
-                    type="text"
-                    onChange={setName}
-                />
-                <TextField 
-                    className="w-[250px] sm:w-[390px]"
-                    sx={{mt: 2}}
-                    required
-                    label="input.email"
-                    type="email"
-                    onChange={setEmail}
-                />
-                <TextField 
-                    className="w-[250px] sm:w-[390px]"
-                    sx={{mt: 2}}
-                    required
-                    label="input.password"
-                    type="password"
-                    onChange={setPassword}
-                />
-                <div className="flex justify-center">
-                    <Button 
-                        className="mt-4 w-[40%] text-white hover:bg-[#44c455]"
-                        type="submit"
-                        variant="contained"
-                        color="primary"
-                    >
-                        <FormattedMessage id={'btn.continue'}/>
-                    </Button>
+    return (
+        <React.Fragment>
+            <Head>
+                <title>إنشاء حساب</title>
+            </Head>
+            <Loading open={loading} /* handleClose={handleClose} */ />
+            <AuthLayout title="title.register">
+                <div className="flex justify-center my-9">
+                    <Avatar 
+                        className="bg-[#d4d4d6]"
+                        alt="Travis Howard"
+                        sx={{ width: 100, height: 100 }}
+                    />
                 </div>
-            </form>  
-            <Box marginTop={2}>
-                <HaveAccount/>
-            </Box>      
-        </AuthLayout>
-        <br></br>
-    </React.Fragment>
-    
-  )
+                <Formik
+                    initialValues={{
+                        name: null,
+                        email: null,
+                        password: null   
+                    }}
+                    validationSchema={validationSchema}
+                    onSubmit = {(values, {resetForm}) => {
+                        onSubmit(values);
+                        resetForm({values: ''})
+                    }}
+                >
+                {
+                    formikProps => (
+                        <form onSubmit={formikProps.handleSubmit}>
+                            <TextField 
+                                name="name"
+                                className="w-[250px] sm:w-[390px]"
+                                required
+                                label="input.name"
+                                type="text"
+                                value={formikProps.values.name}
+                                onChange={formikProps.handleChange}
+                                textError={formikProps.touched.name && formikProps.errors.name}
+                                error={formikProps.touched.name && formikProps.errors.name? true : null}
+                            />
+                            <TextField 
+                                name="email"
+                                className="w-[250px] sm:w-[390px]"
+                                sx={{mt: 2}}
+                                required
+                                label="input.email"
+                                type="email"
+                                value={formikProps.values.email}
+                                onChange={formikProps.handleChange}
+                                textError={formikProps.touched.email && formikProps.errors.email}
+                                error={formikProps.touched.email && formikProps.errors.email? true : null}
+                            />
+                            <TextField
+                                name="password"
+                                className="w-[250px] sm:w-[390px]"
+                                sx={{mt: 2}}
+                                required
+                                label="input.password"
+                                type="password"
+                                value={formikProps.values.password}
+                                onChange={formikProps.handleChange}
+                                textError={formikProps.touched.password && formikProps.errors.password}
+                                error={formikProps.touched.password && formikProps.errors.password? true : null}
+                            />
+                            <div className="flex justify-center">
+                                <Button 
+                                    className="mt-4 w-[40%] text-white hover:bg-[#44c455]"
+                                    type="submit"
+                                    variant="contained"
+                                    color="primary"
+                                >
+                                    <FormattedMessage id={'btn.continue'}/>
+                                </Button>
+                            </div>
+                        </form>  
+                    )
+
+                }
+                </Formik>
+                <Box marginTop={2}>
+                    <HaveAccount/>
+                </Box>      
+            </AuthLayout>
+            <br></br>
+        </React.Fragment>
+    )
 }
 
 function HaveAccount() {
