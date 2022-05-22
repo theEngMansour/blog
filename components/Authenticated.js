@@ -21,7 +21,7 @@ const Authenticated = (props) => {
             <AuthLayout title="login.check">
                 <Alert 
                     type="warning" 
-                    title={formatMessage({id: 'login.check', defaultMessage: 'login.check'})}
+                    title={401}
                     text={formatMessage({id: 'login.check.title', defaultMessage: 'login.check.title'})}
                 />
                 <div className="flex justify-center">
