@@ -212,7 +212,7 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     "to-fast-properties" "^2.0.0"
 
-"@capacitor/core@^3.0.0":
+"@capacitor/core@^3.0.0", "@capacitor/core@^3.5.1":
   "integrity" "sha512-UTROxB7q/hZBnhDLcCN7mVsAX3SxXNMhVuPbtddsDOUCm4hExLXN62gPD7rjgmumhfHMjeXmkw/EfRzSjttL1g=="
   "resolved" "https://registry.npmjs.org/@capacitor/core/-/core-3.5.1.tgz"
   "version" "3.5.1"
