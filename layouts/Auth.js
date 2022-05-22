@@ -1,4 +1,3 @@
-import { Margin } from '@mui/icons-material';
 import { Container, Paper, CssBaseline} from '@mui/material';
 import Image from 'next/image';
 import { FormattedMessage } from 'react-intl';

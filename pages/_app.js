@@ -6,6 +6,7 @@ import theme from 'src/theme';
 import createEmotionCache from 'src/createEmotionCache';
 import msgs from 'site-settings/site-translations';
 import RTL from 'site-settings/RTL';
+import { AuthContextProvider } from 'layouts'
 import { StyledEngineProvider } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
 import { CacheProvider } from '@emotion/react';
@@ -20,7 +21,6 @@ export default function MyApp(props) {
   const locale = 'ar';
 
   const [showChild, setShowChild] = useState(false)
-  const [lang, setLang] = useState('ar')
 
   useEffect(() => {
     setShowChild(true)
@@ -42,9 +42,11 @@ export default function MyApp(props) {
         <StyledEngineProvider injectFirst>
           <IntlProvider locale={locale} messages={msgs[locale]}>
             <RTL> 
-              {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-              <CssBaseline />
-              {typeof window === 'undefined'? (<></>) : (<Component {...pageProps} />)}
+              <AuthContextProvider>
+                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+                <CssBaseline />
+                {typeof window === 'undefined'? (<></>) : (<Component {...pageProps} />)}
+              </AuthContextProvider>
             </RTL>
           </IntlProvider>
         </StyledEngineProvider>

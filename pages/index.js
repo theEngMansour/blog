@@ -1,11 +1,13 @@
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import { MainLayout } from 'layouts';
-
+import { Authenticated } from 'components'
+import Link from 'next/link'
 export default function Home() {
   return (
-    <MainLayout>
-      <h1>contant</h1>
-    </MainLayout>
+    <Authenticated>
+     <h1>Auth</h1>
+     <Link href={'/'}>
+       ssssssssssss
+     </Link>
+    </Authenticated>
   )
+
 }

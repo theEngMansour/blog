@@ -212,6 +212,18 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     "to-fast-properties" "^2.0.0"
 
+"@capacitor/core@^3.0.0":
+  "integrity" "sha512-UTROxB7q/hZBnhDLcCN7mVsAX3SxXNMhVuPbtddsDOUCm4hExLXN62gPD7rjgmumhfHMjeXmkw/EfRzSjttL1g=="
+  "resolved" "https://registry.npmjs.org/@capacitor/core/-/core-3.5.1.tgz"
+  "version" "3.5.1"
+  dependencies:
+    "tslib" "^2.1.0"
+
+"@capacitor/storage@^1.2.5":
+  "integrity" "sha512-pWhnw4U7wN/zFV4lA4BLMypSufTktCbk548Yk4whSb0KAq3R0mLfSubRIHkGdcPqQWCsM6g/zUuszurhz6ncWQ=="
+  "resolved" "https://registry.npmjs.org/@capacitor/storage/-/storage-1.2.5.tgz"
+  "version" "1.2.5"
+
 "@emotion/babel-plugin@^11.7.1":
   "integrity" "sha512-Pr/7HGH6H6yKgnVFNEj2MVlreu3ADqftqjqwUvDy/OJzKFgxKeTQ+eeUf20FOTuHVkDON2iNa25rAXVYtWJCjw=="
   "resolved" "https://registry.npmjs.org/@emotion/babel-plugin/-/babel-plugin-11.9.2.tgz"

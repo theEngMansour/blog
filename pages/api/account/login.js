@@ -17,7 +17,7 @@ export default async function handler(req, res) {
                     id: user.id,
                     email: user.email
                 }, process.env.JWT)
-                res.status(200).json({accessToken: req.headers.authorization});
+                res.status(200).json({accessToken: token});
             } else {
                 res.status(401).json({message: langs.ar.errorLogin});
             }

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import RoomPreferencesIcon from '@mui/icons-material/RoomPreferences';
@@ -9,6 +9,9 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { login } from 'hooks/useAuth';
 import { Loading, Alert } from 'components';
 import { useRouter } from 'next/router';
+import { Storage } from '@capacitor/storage';
+import { AuthContext } from 'layouts/AuthContext';
+
 
 export default function Login() {
   const [email, setEmail] = useState();
@@ -16,6 +19,7 @@ export default function Login() {
   const [showLoading, setShowLoading] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
+  const {loggedIn, setLoggedIn} = useContext(AuthContext)
   const { formatMessage } = useIntl()
   const router = useRouter()
 
@@ -28,7 +32,13 @@ export default function Login() {
   const onSubmit = async () => {
     setShowLoading(true)
     try {
-      await login({email, password})
+      await login({email, password}).then(res => {
+        Storage.set({
+          key: 'accessToken',
+          value: res.data.accessToken
+        });
+      })
+      setLoggedIn(true)
       setTimeout(() => setShowLoading(false, 1005))
       router.push('/')
     } catch (e) {
@@ -42,6 +52,7 @@ export default function Login() {
     }
   }
 
+  
   return (
     <React.Fragment>
         <Head>

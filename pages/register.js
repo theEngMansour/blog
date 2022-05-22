@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import * as yup from 'yup';
@@ -16,11 +16,13 @@ import { register } from 'hooks/useAuth';
 import { Formik } from 'formik';
 import { Loading, Alert } from 'components';
 import { useRouter } from 'next/router';
+import { AuthContext } from 'layouts/AuthContext';
 
 export default function Register() {
     const [loading, setLoading] = useState(false)
     const [showAlert, setShowAlert] = useState(false)
 
+    const {loggedIn, setLoggedIn} = useContext(AuthContext)
     const { formatMessage } = useIntl()
     const router = useRouter()
   
@@ -67,7 +69,7 @@ export default function Register() {
         try {
             await register(values)
             setTimeout(() => setLoading(false, 1005))
-            router.push('/')
+            router.push('/login')
         } catch (e) {
             if (e.response.status === 400) {
                 setLoading(false)
@@ -84,6 +86,7 @@ export default function Register() {
             console.log('type')
         }; 
     */
+
 
     return (
         <React.Fragment>
