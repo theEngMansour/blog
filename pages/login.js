@@ -19,7 +19,7 @@ export default function Login() {
   const [showLoading, setShowLoading] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-  const {loggedIn, setLoggedIn} = useContext(AuthContext)
+  const {setLoggedIn, jwt, setJwt} = useContext(AuthContext)
   const { formatMessage } = useIntl()
   const router = useRouter()
 
@@ -37,9 +37,10 @@ export default function Login() {
           key: 'accessToken',
           value: res.data.accessToken
         });
+        setJwt(res.data.accessToken)
       })
       setLoggedIn(true)
-      setTimeout(() => setShowLoading(false, 1005))
+      setTimeout(() => setShowLoading(false), 1005)
       router.push('/')
     } catch (e) {
       if (e.response.status === 401) {
@@ -52,7 +53,8 @@ export default function Login() {
     }
   }
 
-  
+  if(jwt) return <h1 className="text-center"><FormattedMessage id={'auth.login'}/></h1>
+
   return (
     <React.Fragment>
         <Head>

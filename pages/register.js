@@ -20,16 +20,16 @@ import { AuthContext } from 'layouts/AuthContext';
 
 export default function Register() {
     const [loading, setLoading] = useState(false)
-    const [showAlert, setShowAlert] = useState(false)
+    const [showAlert, setShowAlert] = useState({success: false, error: false})
 
-    const {loggedIn, setLoggedIn} = useContext(AuthContext)
+    const {jwt} = useContext(AuthContext)
     const { formatMessage } = useIntl()
     const router = useRouter()
   
     useEffect(() => {
         setTimeout(() => {
-          setShowAlert(false)
-        }, 3000);
+          setShowAlert({success: false, error: false})
+        }, 5000);
       }, [showAlert])
     
     const validationSchema = yup.object({
@@ -68,12 +68,13 @@ export default function Register() {
         setLoading(true) 
         try {
             await register(values)
-            setTimeout(() => setLoading(false, 1005))
-            router.push('/login')
+            setLoading(false)
+            setShowAlert({...showAlert, success: true})
+            await setTimeout(() => router.push('/login'), 5000)
         } catch (e) {
             if (e.response.status === 400) {
                 setLoading(false)
-                setShowAlert(true)
+                setShowAlert({...showAlert, error: true})
             } else {
                 console.log(e.message);
                 setLoading(false)
@@ -87,6 +88,7 @@ export default function Register() {
         }; 
     */
 
+    if(jwt) return <h1 className="text-center"><FormattedMessage id={'auth.login'}/></h1>
 
     return (
         <React.Fragment>
@@ -95,11 +97,18 @@ export default function Register() {
             </Head>
             <Loading open={loading} /* handleClose={handleClose} */ />
             <AuthLayout title="title.register">
-                {showAlert &&
+                {showAlert.error &&
                     <Alert 
                         type="error" 
                         title={formatMessage({id: 'input.email', defaultMessage: 'input.email'})}
                         text={formatMessage({id: 'loginError', defaultMessage: 'loginError'})}
+                    />
+                }
+                {showAlert.success &&
+                    <Alert 
+                        type="success" 
+                        title={formatMessage({id: 'loginSuccess', defaultMessage: 'loginSuccess'})}
+                        text={formatMessage({id: 'router.login', defaultMessage: 'router.login'})}
                     />
                 }
                 <div className="flex justify-center my-9">

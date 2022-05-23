@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
-import { AuthContext } from 'layouts/AuthContext';
+import { AuthContext } from './AuthContext';
 import { AuthLayout } from 'layouts';
 import { Alert } from 'components';
 import { Button } from '@mui/material';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 const Authenticated = (props) => {
-    const {loggedIn} = useContext(AuthContext)
+    const { loggedIn } = useContext(AuthContext)
     const { formatMessage } = useIntl()
 
     if(loggedIn) {

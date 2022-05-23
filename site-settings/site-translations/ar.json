@@ -48,6 +48,7 @@
   "btn.send": "إرسال",
   "btn.ask": "أضف مشاركة",
   "btn.share": "مشاركة",
+  "router.login": "سيتم تحويلك الى صفحة تسجيل الدخول",
   "btn.save": "حفظ التغييرات",
   "btn.newest": "الأحدث",
   "btn.oldest": "الأقدم",
@@ -66,6 +67,7 @@
   "post.add_your_answer": "أضف إجابتك",
   "auth.login.vote": "لايمكنك التصويت قبل تسجيل الدخول",
   "auth.login.vote.update": "جاري التصويت ...",
+  "auth.login": "تم تسجيل الدخول من قبل ! ",
   "copyright": "جميع الحقوق محفوظة"
 }
   

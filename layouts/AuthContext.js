@@ -5,7 +5,9 @@ export const AuthContext = createContext();
 
 const AuthContextProvider = (props) => {
     const [loggedIn, setLoggedIn] = useState(false);
+    const [jwt, setJwt] = useState()
 
+    console.log(loggedIn)
     useEffect(() => {
         getAuthenticated()
     }, [])
@@ -14,6 +16,7 @@ const AuthContextProvider = (props) => {
         const accessToken = await Storage.get({key: 'accessToken'})
         if(accessToken.value) {
             setLoggedIn(true)
+            setJwt(accessToken.value)
         } else {
             setLoggedIn(false)
         }
@@ -21,7 +24,7 @@ const AuthContextProvider = (props) => {
 
     return (
         <React.Fragment>
-            <AuthContext.Provider value={{loggedIn, setLoggedIn}} >
+            <AuthContext.Provider value={{loggedIn, setLoggedIn, jwt, setJwt}} >
                 {props.children}
             </AuthContext.Provider>
         </React.Fragment>
