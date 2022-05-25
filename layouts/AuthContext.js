@@ -7,7 +7,6 @@ const AuthContextProvider = (props) => {
     const [loggedIn, setLoggedIn] = useState(false);
     const [jwt, setJwt] = useState()
 
-    console.log(loggedIn)
     useEffect(() => {
         getAuthenticated()
     }, [])

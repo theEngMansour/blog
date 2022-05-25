@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import {TextField} from '@mui/material';
 import { useIntl } from 'react-intl';
 
-export default function Field({ name, error, label, onChange, textError, value = null,  variant = 'outlined', ...props }) {
+export default function Field({ name, error, label, onChange, textError, value = null, variant = 'outlined', ...props }) {
   const { formatMessage } = useIntl()
   return (
     <Box

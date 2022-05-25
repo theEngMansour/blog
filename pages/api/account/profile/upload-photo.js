@@ -4,7 +4,7 @@ import {apiRoute, upload} from 'middleware/upload';
 
 apiRoute.use(upload.single('avatar'));
 
-apiRoute.post(async (req, res) => {
+apiRoute.put(async (req, res) => {
     if (req.method !== 'PUT') return res.status(400).json({message: 'method no put'})
     try{
         const uploadPhoto = await prisma.user.update({
