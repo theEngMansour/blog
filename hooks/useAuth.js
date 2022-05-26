@@ -9,16 +9,16 @@ export const register = params => axios.post(`${URL}/register`, params);
 
 export function useProfile(jwt) {
     const url = `/api/account/profile`;
-    const token = jwt;
-    const fetcher = (url, token) => axios.get(url, { headers: {Authorization: token} })
-    .then(res => res?.data)
+    const token = { headers: {Authorization: jwt} };
+    const fetcher = (url, token) => axios.get(url, token)
+        .then(res => res?.data)
     const { data: user, error, mutate } = useSWR([url, token], fetcher)
 
     const update = async (params) => {
-        await axios.put(url, params, { headers: {Authorization: token} })
-        await mutate({...user})
+        await axios.put(`${url}/update`, params, token)
+        await mutate({...user, params})
     }
-    
+
     return {
         user,
         error,

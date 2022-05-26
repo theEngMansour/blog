@@ -67,9 +67,13 @@
   "haveAccount": "لديك حساب بالفعل؟ تسجيل الدخول",
   "post.answers": "الأجوبة",
   "post.add_your_answer": "أضف إجابتك",
+  "model.title": "تنبيه!",
+  "model.description": "هل تريد بالفعل تعديل البيانات الشخصية؟",
   "auth.login.vote": "لايمكنك التصويت قبل تسجيل الدخول",
   "auth.login.vote.update": "جاري التصويت ...",
   "auth.login": "تم تسجيل الدخول من قبل ! ",
-  "copyright": "جميع الحقوق محفوظة"
+  "copyright": "جميع الحقوق محفوظة",
+  "is.close": "إلغاء",
+  "is.ok": "موافق"
 }
   

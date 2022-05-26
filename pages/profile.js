@@ -4,7 +4,7 @@ import { AuthLayout } from 'layouts';
 import { useProfile } from 'hooks/useAuth';
 import { AuthContext } from 'layouts/AuthContext';
 import { Details } from 'components/profile';
-
+import { Model } from 'components';
 
 export default function Profile() {
     const [name, setName] = useState()
@@ -21,13 +21,16 @@ export default function Profile() {
         setName(name)
         setEmail(email)
         setUserImg(img_uri)
+        console.log(showAlert);
     }, [user])
 
     const onSubmit = async () => {
         try {
             await update({name, password})
+            setShowAlert(false)
         } catch(e) {
             console.log(e.response);
+            setShowAlert(false)
         }
     }
 
@@ -36,13 +39,13 @@ export default function Profile() {
             <Head>
                 <title>الملف الشخصي</title>
             </Head>
-            <button onClick={onSubmit}>s</button>
-           
+            <Model title={'model.title'} description={'model.description'} open={showAlert} close={setShowAlert} acceptor={onSubmit} />
             <AuthLayout title="title.profile">
-            {user?.name}
                 <Details name={name} email={email} userName={setName} password={setPassword} showAlert={setShowAlert} />
             </AuthLayout>
-            <br></br><br></br>
+            <br className="mt-10"></br>
         </React.Fragment>
     )
 }
+
+

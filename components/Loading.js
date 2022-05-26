@@ -3,13 +3,9 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import Button from '@mui/material/Button';
 
-export default function SimpleBackdrop({open, handleClose}) {
+export default function SimpleBackdrop({open/* , handleClose */}) {
 
-/*   const handleClose = () => {
-    setOpen(false);
-  };
 
- */
   return (
     <div>
       <Backdrop
