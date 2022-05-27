@@ -11,6 +11,7 @@ import { StyledEngineProvider } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
 import { CacheProvider } from '@emotion/react';
 import { IntlProvider } from 'react-intl';
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import '../styles/globals.css';
 import '../styles/fonts.css';
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -60,3 +61,5 @@ MyApp.propTypes = {
   emotionCache: PropTypes.object,
   pageProps: PropTypes.object.isRequired,
 };
+
+defineCustomElements();

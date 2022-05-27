@@ -74,6 +74,10 @@
   "auth.login": "تم تسجيل الدخول من قبل ! ",
   "copyright": "جميع الحقوق محفوظة",
   "is.close": "إلغاء",
-  "is.ok": "موافق"
+  "is.ok": "موافق",
+  "prompt.label.header": "صورة",
+  "prompt.label.photo": "من ملفات الصور",
+  "prompt.label.picture": "التقط صورة",
+  "close.camera": "تم إغلاق الكاميرا"
 }
   
