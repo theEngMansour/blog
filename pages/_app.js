@@ -55,7 +55,7 @@ export default function MyApp(props) {
     </CacheProvider>
   );
 }
-
+defineCustomElements(typeof window === 'undefined'? null : window);
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
   emotionCache: PropTypes.object,
