@@ -1,10 +1,16 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {
+    useState, 
+    useEffect, 
+    useContext
+} from 'react';
 import Head from 'next/head';
 import { AuthLayout } from 'layouts';
 import { useProfile } from 'hooks/useAuth';
 import { AuthContext } from 'layouts/AuthContext';
 import { Details, Avatar } from 'components/profile';
 import { Model } from 'components';
+import { usePhotoGallery } from 'hooks/usePhotoGallery';
+
 
 export default function Profile() {
     const [name, setName] = useState()
@@ -12,8 +18,10 @@ export default function Profile() {
     const [userImg, setUserImg] = useState()
     const [password, setPassword] = useState()
     const [showAlert, setShowAlert] = useState(false)
+
     const {jwt} = useContext(AuthContext)
-    const {user, update} = useProfile(jwt)
+    const {user, update, uploadPhoto} = useProfile(jwt)
+    const { takePhoto, blobUrl } = usePhotoGallery()
 
     useEffect(() => {
         if (!user) return
@@ -21,8 +29,14 @@ export default function Profile() {
         setName(name)
         setEmail(email)
         setUserImg(img_uri)
-        console.log(showAlert);
     }, [user])
+
+    useEffect(() => {
+        if(blobUrl) {
+            setUserImg(blobUrl)
+            uploadPhoto(blobUrl)
+        }
+    }, [blobUrl])
 
     const onSubmit = async () => {
         try {
@@ -41,7 +55,7 @@ export default function Profile() {
             </Head>
             <Model title={'model.title'} description={'model.description'} open={showAlert} close={setShowAlert} acceptor={onSubmit} />
             <AuthLayout title="title.profile">
-                <Avatar userImg={userImg} />
+                <Avatar userImg={userImg} takePhoto={takePhoto} />
                 <Details name={name} email={email} userName={setName} password={setPassword} showAlert={setShowAlert} />
             </AuthLayout>
             <br className="mt-10"></br>

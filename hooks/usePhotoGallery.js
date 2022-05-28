@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { 
     Camera, 
@@ -6,7 +7,7 @@ import {
 } from '@capacitor/camera';
 
 export function usePhotoGallery () {
-
+    const [blobUrl, setBlobUrl] = useState()
     const { formatMessage } = useIntl()
     const takePhoto = async () => {
         try {
@@ -18,13 +19,14 @@ export function usePhotoGallery () {
                 promptLabelPhoto: formatMessage({ id: 'prompt.label.photo'}),
                 promptLabelPicture: formatMessage({ id: 'prompt.label.picture'})
             })
-
+            setBlobUrl(cameraPhoto.webPath)
         } catch(e) {
             console.log(formatMessage({ id: 'close.camera'}));
         }
     }
 
     return {
-        takePhoto
+        takePhoto,
+        blobUrl
     }
 }

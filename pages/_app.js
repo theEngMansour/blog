@@ -62,4 +62,4 @@ MyApp.propTypes = {
   pageProps: PropTypes.object.isRequired,
 };
 
-defineCustomElements();
+defineCustomElements(typeof window === 'undefined'? null : window);
