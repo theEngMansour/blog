@@ -9,6 +9,7 @@ import { useProfile } from 'hooks/useAuth';
 import { AuthContext } from 'layouts/AuthContext';
 import { Details, Avatar } from 'components/profile';
 import { Model } from 'components';
+import { useIntl } from 'react-intl';
 import { usePhotoGallery } from 'hooks/usePhotoGallery';
 
 
@@ -22,6 +23,7 @@ export default function Profile() {
     const {jwt} = useContext(AuthContext)
     const {user, update, uploadPhoto} = useProfile(jwt)
     const { takePhoto, blobUrl } = usePhotoGallery()
+    const { formatMessage } = useIntl()
 
     useEffect(() => {
         if (!user) return
@@ -51,7 +53,7 @@ export default function Profile() {
     return (
         <React.Fragment>
             <Head>
-                <title>الملف الشخصي</title>
+                <title>{formatMessage({id: 'title.profile'})}</title>
             </Head>
             <Model title={'model.title'} description={'model.description'} open={showAlert} close={setShowAlert} acceptor={onSubmit} />
             <AuthLayout title="title.profile">

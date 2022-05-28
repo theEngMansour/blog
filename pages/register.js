@@ -93,7 +93,7 @@ export default function Register() {
     return (
         <React.Fragment>
             <Head>
-                <title>إنشاء حساب</title>
+                <title>{formatMessage({id: 'title.register'})}</title>
             </Head>
             <Loading open={loading} /* handleClose={handleClose} */ />
             <AuthLayout title="title.register">

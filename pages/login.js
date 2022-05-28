@@ -58,7 +58,7 @@ export default function Login() {
   return (
     <React.Fragment>
         <Head>
-          <title>تسجيل الدخول</title>
+          <title>{formatMessage({id: 'title.login'})}</title>
         </Head>
         <Loading open={showLoading} />
         <AuthLayout title="title.login">
