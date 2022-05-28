@@ -20,7 +20,7 @@ export default function UserAvatar({userImg, takePhoto}) {
                     alt="Mansour Ahmed"
                     sx={{ width: 100, height: 100 }}
                 >
-                    <Image src={userImg} width={100} height={100} />
+                    <Image src={userImg} width={100} height={100} alt={'profile image'} />
                 </Avatar>
                 :
                 <Avatar onClick={() => takePhotoRef.current.click()}
