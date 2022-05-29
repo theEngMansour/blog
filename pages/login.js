@@ -19,7 +19,7 @@ export default function Login() {
   const [showLoading, setShowLoading] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-  const {setLoggedIn, jwt, setJwt} = useContext(AuthContext)
+  const {loggedIn, setLoggedIn, jwt, setJwt} = useContext(AuthContext)
   const { formatMessage } = useIntl()
   const router = useRouter()
 
@@ -53,7 +53,7 @@ export default function Login() {
     }
   }
 
-  if(jwt) return <h1 className="text-center"><FormattedMessage id={'auth.login'}/></h1>
+  if(loggedIn) return <h1 className="text-center"><FormattedMessage id={'auth.login'}/></h1>
 
   return (
     <React.Fragment>

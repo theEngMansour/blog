@@ -22,7 +22,7 @@ export default function Register() {
     const [loading, setLoading] = useState(false)
     const [showAlert, setShowAlert] = useState({success: false, error: false})
 
-    const {jwt} = useContext(AuthContext)
+    const {loggedIn} = useContext(AuthContext)
     const { formatMessage } = useIntl()
     const router = useRouter()
   
@@ -88,7 +88,7 @@ export default function Register() {
         }; 
     */
 
-    if(jwt) return <h1 className="text-center"><FormattedMessage id={'auth.login'}/></h1>
+    if(loggedIn) return <h1 className="text-center"><FormattedMessage id={'auth.login'}/></h1>
 
     return (
         <React.Fragment>
