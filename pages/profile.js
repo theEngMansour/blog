@@ -11,7 +11,7 @@ import { Details, Avatar } from 'components/profile';
 import { Model } from 'components';
 import { useIntl } from 'react-intl';
 import { usePhotoGallery } from 'hooks/usePhotoGallery';
-
+import { Authenticated } from 'layouts';
 
 export default function Profile() {
     const [name, setName] = useState()
@@ -51,7 +51,7 @@ export default function Profile() {
     }
 
     return (
-        <React.Fragment>
+        <Authenticated>
             <Head>
                 <title>{formatMessage({id: 'title.profile'})}</title>
             </Head>
@@ -61,7 +61,7 @@ export default function Profile() {
                 <Details name={name} email={email} userName={setName} password={setPassword} showAlert={setShowAlert} />
             </AuthLayout>
             <br className="mt-10"></br>
-        </React.Fragment>
+        </Authenticated>
     )
 }
 
