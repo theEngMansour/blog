@@ -69,15 +69,7 @@ export default function Login() {
               text={formatMessage({id: 'errorLogin', defaultMessage: 'errorLogin'})}
             />
           }
-          <div className="flex justify-center my-9">
-            <Avatar 
-              className="bg-[#45b97c]"
-              alt="Mansour Ahmed"
-              sx={{ width: 100, height: 100 }}
-            >
-              <RoomPreferencesIcon sx={{ width: 50, height: 50 }} />
-            </Avatar>
-          </div>
+          <div className="flex justify-center my-9"></div>
           <TextField 
             className="w-[250px] sm:w-[390px]"
             required
