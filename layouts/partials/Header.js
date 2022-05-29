@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from 'layouts/AuthContext';
+import { useRouter } from 'next/router';
+import { Storage } from '@capacitor/storage';
 
-const ResponsiveAppBar = () => {
+export default function Header() {
+  const {setLoggedIn} = useContext(AuthContext)
+  const router = useRouter()
+
+  const logout = async () => {
+    await Storage.remove({key: 'accessToken'})
+    setLoggedIn(false)
+    router.replace('/login')
+  }
+
   return (
-    <h1>Home</h1>
+    <React.Fragment>
+      <p className="underline selection:bg-slate-500 selection:text-red-200" onClick={logout}>logout</p>
+    </React.Fragment>
   );
 };
-export default ResponsiveAppBar;
