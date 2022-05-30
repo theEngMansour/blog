@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import * as yup from 'yup';
 import { 
     Button, 
@@ -113,10 +114,12 @@ export default function Register() {
                 }
                 <div className="flex justify-center my-9">
                     <Avatar 
-                        className="bg-[#d4d4d6]"
+                        className="bg-[#45b97c]"
                         alt="Mansour Ahmed"
                         sx={{ width: 100, height: 100 }}
-                    />
+                    >
+                        <Image src={'/svg/users.svg'} width={40} height={40} />
+                    </Avatar>
                 </div>
                 <Formik
                     initialValues={{

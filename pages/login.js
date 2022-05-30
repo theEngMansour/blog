@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import RoomPreferencesIcon from '@mui/icons-material/RoomPreferences';
+import Image from 'next/image';
 import { Button, Box, Typography, Avatar, Link as MuiLink } from '@mui/material';
 import { AuthLayout } from 'layouts';
 import { TextField } from 'components/inputs'
@@ -12,14 +12,13 @@ import { useRouter } from 'next/router';
 import { Storage } from '@capacitor/storage';
 import { AuthContext } from 'layouts/AuthContext';
 
-
 export default function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [showLoading, setShowLoading] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-  const {loggedIn, setLoggedIn, jwt, setJwt} = useContext(AuthContext)
+  const {loggedIn, setLoggedIn, setJwt} = useContext(AuthContext)
   const { formatMessage } = useIntl()
   const router = useRouter()
 
@@ -69,7 +68,15 @@ export default function Login() {
               text={formatMessage({id: 'errorLogin', defaultMessage: 'errorLogin'})}
             />
           }
-          <div className="flex justify-center my-9"></div>
+          <div className="flex justify-center my-9">
+            <Avatar 
+              className="bg-[#45b97c]"
+              alt="Mansour Ahmed"
+              sx={{ width: 100, height: 100 }}
+            >
+              <Image src={'/svg/user.svg'} width={40} height={40} />
+            </Avatar>
+          </div>
           <TextField 
             className="w-[250px] sm:w-[390px]"
             required
