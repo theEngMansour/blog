@@ -7,7 +7,8 @@ export default function Main({children}) {
     return (
         <React.Fragment>
             <Header/>
-            <Container  component="main" sx={{my: 0.1}}>
+            <br></br>
+            <Container component="main" sx={{my: 0.1}}>
                 {children}
             </Container>
             <Footer/>
