@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
 import {
@@ -6,10 +6,12 @@ import {
   Toolbar, 
   CssBaseline, 
   Slide,
-  Button,
+  Box,
+  Tab, 
+  Tabs,
   useScrollTrigger
 } from '@mui/material';
-
+import { tabsClasses } from '@mui/material/Tabs';
 import { AuthContext } from 'layouts/AuthContext';
 import { useRouter } from 'next/router';
 import { Storage } from '@capacitor/storage';
@@ -35,6 +37,12 @@ HideOnScroll.propTypes = {
 
 
 export default function Header(props) {
+  // Tabs
+  const [value, setValue] = useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   const {setLoggedIn} = useContext(AuthContext)
   const router = useRouter()
 
@@ -56,10 +64,32 @@ export default function Header(props) {
           </Toolbar>
           <Toolbar>
             <div className="flex justify-center w-[100%] select-none" variant={0}>
-              <Button sx={{mx: 1}} className="bg-[#45b97c] text-white">الرئيسية</Button>
-              <Button sx={{mx: 1, color: '#5d5f63'}} className="bg-[#ffffff]">التصنيفات</Button>
-              <Button sx={{mx: 1, color: '#5d5f63'}} className="bg-[#ffffff]">الإعلامين</Button>
-              <Button sx={{mx: 1, color: '#5d5f63'}} className="bg-[#ffffff]">حول</Button>
+              <Box
+                sx={{
+                  flexGrow: 1,
+                  maxWidth: { xs: 320, sm: 480 },
+                  bgcolor: 'background.paper',
+                }}
+              >
+                <Tabs
+                  value={value}
+                  onChange={handleChange}
+                  variant="scrollable"
+                  scrollButtons
+                  aria-label="visible arrows tabs example"
+                  sx={{
+                    [`& .${tabsClasses.scrollButtons}`]: {
+                      '&.Mui-disabled': { opacity: 0.3 },
+                    },
+                  }}
+                >
+                  <Tab label="الرئيسية" />
+                  <Tab label="التصنيفات" />
+                  <Tab label="الإعلامين" />
+                  <Tab label="حول" />
+                  <Tab label="الملف الشخصي" />
+                </Tabs>
+              </Box>
             </div>
           </Toolbar>
         </AppBar>
