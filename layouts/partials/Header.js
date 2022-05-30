@@ -60,7 +60,6 @@ export default function Header(props) {
               <Button sx={{mx: 1, color: '#5d5f63'}} className="bg-[#ffffff]">التصنيفات</Button>
               <Button sx={{mx: 1, color: '#5d5f63'}} className="bg-[#ffffff]">الإعلامين</Button>
               <Button sx={{mx: 1, color: '#5d5f63'}} className="bg-[#ffffff]">حول</Button>
-              <Button sx={{mx: 1, color: '#5d5f63'}} className="bg-[#ffffff]">الملف الشخصي</Button>
             </div>
           </Toolbar>
         </AppBar>
