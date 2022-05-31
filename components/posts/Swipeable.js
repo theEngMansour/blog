@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { Global } from '@emotion/react';
 import { grey } from '@mui/material/colors';
-W
+
 const drawerBleeding = 56;
 
 const Root = styled('div')(({ theme }) => ({
