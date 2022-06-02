@@ -14,8 +14,7 @@ export function useProfile(jwt) {
     */
     const url = `/api/account/profile`;
     const token = { headers: {Authorization: jwt} };
-    const fetcher = (url, token) => axios.get(url, token)
-        .then(res => res?.data)
+    const fetcher = (url, token) => axios.get(url, token).then(res => res?.data)
     const { data: user, error, mutate } = useSWR([url, token], fetcher)
 
     /* 
