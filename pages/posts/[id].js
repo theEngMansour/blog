@@ -10,7 +10,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { ShowPost } from 'components/posts'
 
 
-export default function Show({params}) {
+export default function Show({params}) {   
     const { formatMessage } = useIntl()
     const router = useRouter()
 
