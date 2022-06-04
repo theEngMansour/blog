@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
+
 import { MainLayout } from 'layouts';
 import { usePosts } from 'hooks/usePost';
 import { Posts, Pages } from 'components/posts'
@@ -23,7 +23,7 @@ export default function Index() {
       : 
       data?.posts?.length > 0 ? (
         <React.Fragment>
-          <Link href={'/my-posts'} prefetch >On Link</Link>
+          
           <Posts items={data?.posts || []} />
           <Pages count={data?.pages} page={Number(page)} />
         </React.Fragment>

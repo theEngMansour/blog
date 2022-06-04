@@ -3,6 +3,7 @@ import Image from 'next/image';
 import moment from 'site-settings/moment';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Like } from 'components/like';
+import { Comment } from 'components/comment';
 import {Pagination, Navigation, Autoplay} from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -37,7 +38,7 @@ export default function ShowPost({ item = []}) {
                             )
                         })}
                     </Swiper>
-                    <div className="w-full px-4 lg:w-1/2">
+                    <div className="w-full px-4">
                         <Like sendToParent={setLikeCount} />
                         <div className="m-0">
                             <p className="m-0">{likeCount} إعجاب</p>
@@ -59,8 +60,10 @@ export default function ShowPost({ item = []}) {
                             <p className="ml-5 font-semibold text-[#20C67B] font-[Jannat]">{item?.country}</p>
                             <p className="ml-5 font-semibold text-[#f3b121] font-[Jannat]">{item?.region}</p>
                         </div>
+                        <Comment />
                     </div>
                 </div>
+
             </div>
         </React.Fragment>
     )
