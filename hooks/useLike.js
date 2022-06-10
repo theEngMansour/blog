@@ -7,12 +7,12 @@ export function useLike(postId, jwt) {
     const fetcher = (url, token) => axios.get(url, token).then(res => res?.data)
     const { data: like, error, mutate } = useSWR([url, token], fetcher)
 
-    const liked = () => {
+    const liked = async () => {
         if(!jwt) return
         const url = `/api/posts/${postId}/like`;
         const params = {}
-        axios.put(url, params, token)
-        mutate({...like, params})
+        await axios.put(url, params, token)
+        await mutate()
     }
 
     return {

@@ -23,7 +23,8 @@ export function useProfile(jwt) {
     */
     const update = async (params) => {
         await axios.put(`${url}/update`, params, token)
-        await mutate({...user, params})
+        await mutate()
+        // await mutate({...user, params})
     }
 
     /* 
@@ -38,7 +39,7 @@ export function useProfile(jwt) {
             photoData.append('avatar', blob)
             await axios.put(`${url}/upload-photo`, photoData, token)
                 .then(res => console.log(res))
-            await mutate({...user, photoData})
+            await mutate()
         } catch(e) {
             console.log(e.response);
         }
