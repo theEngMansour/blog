@@ -4,7 +4,7 @@ import moment from 'site-settings/moment';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Like } from 'components/like';
 import { Comment } from 'components/comment';
-import {Pagination, Navigation, Autoplay} from 'swiper';
+import { Pagination, Navigation, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';

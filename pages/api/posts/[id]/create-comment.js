@@ -3,7 +3,7 @@ import auth from 'middleware/authentication';
 import langs from 'site-settings/site-translations';
 
 async function handler(req, res) {
-    if (req.method !== 'PUT') return res.status(400).json()
+    if (req.method !== 'POST') return res.status(400).json()
     const {text} = req.body;
     try {
         const comment = await prisma.comment.create({
