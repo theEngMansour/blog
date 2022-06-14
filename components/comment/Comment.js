@@ -12,7 +12,6 @@ export default function Comment() {
     const { jwt } = useContext(AuthContext)
     const { id } = router.query;
     const {data, create, loading} = useComment(id)
-    const comments =  data || [];
 
     const onSubmit = async () => {
         const data = {
@@ -39,7 +38,7 @@ export default function Comment() {
              <h1>loading</h1>
             :
             <div>
-                <GetComment comments={comments} />
+                <GetComment comments={data || []} />
                 <CreateComment value={comment} onChange={setComment} validation={validation} />
             </div>
             }

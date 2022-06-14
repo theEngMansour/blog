@@ -1,11 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
-import Button from '@mui/material/Button';
 
 export default function SimpleBackdrop({open/* , handleClose */}) {
-
-
   return (
     <div>
       <Backdrop

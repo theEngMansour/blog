@@ -10,7 +10,7 @@ export default function UserAvatar({userImg, takePhoto}) {
                 overlap="circular"
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                 badgeContent={
-                    <span ref={takePhotoRef} onClick={() => takePhoto()} className="bg-[#44c455] hover:bg-[#38a146]  w-7 h-7 rounded-full text-center leading-7 text-xl font-bold text-white select-none">+</span>
+                    <span ref={takePhotoRef} onClick={() => takePhoto()} className="bg-[#44c455] hover:bg-[#38a146] w-7 h-7 rounded-full text-center leading-7 text-xl font-bold text-white select-none">+</span>
                 }
             >   
                 {userImg
