@@ -27,7 +27,7 @@ export default function ShowPost({ item = []}) {
             <div className="relative z-10 overflow-hidden rounded bg-primary md:p-[50px] bg-white">
                 <div className="flex flex-wrap items-center">
                     <Swiper {...swiper_settings} modules={[Pagination, Navigation, Autoplay]}>   
-                        {item?.images?.map((img)=> {
+                        {item?.images?.map((img) => {
                             return (
                                 <SwiperSlide key={img.id}>
                                     <div className="flex justify-center">

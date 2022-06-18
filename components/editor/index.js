@@ -6,6 +6,11 @@ export default function TextEditor(props) {
     const [editorState, setEditorState] = useState(() => 
         EditorState.createEmpty()
     )
+    const [editorData, setEditorData] = useState()
+
+    const handleSend = () => {
+        props.sendToParent(editorData)
+    }
 
     const StyleButton = (props) => {
         let onClickButton = (e) => {
@@ -53,15 +58,20 @@ export default function TextEditor(props) {
         setEditorState(nextState)
     }
 
-    console.log(convertToRaw(editorState.getCurrentContent()))
-
     return (
         <React.Fragment>
             <div className='RichEditor-controls'>
                 <BlockStyleControls onToggle={onBlockClick} />
             </div>
             <div className="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none my-2">
-                <Editor editorState={editorState} onChange={setEditorState} />
+                <Editor 
+                    editorState={editorState} 
+                    onChange={(editorState) => {
+                        setEditorState(editorState)
+                        setEditorData(JSON.stringify(convertToRaw(editorState.getCurrentContent())));
+                        handleSend()
+                    }}
+                />
             </div>
         </React.Fragment>
     )
