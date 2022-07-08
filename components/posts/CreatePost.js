@@ -70,7 +70,7 @@ export default function CreatePost() {
                     <div className="relative">
                         <input
                         type="email"
-                        className="w-full p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-blue-700"
+                        className="w-full p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-blue-500"
                         placeholder={
                             formatMessage({
                                 id: 'title'
@@ -83,7 +83,7 @@ export default function CreatePost() {
                     <div className="relative">
                         <input
                         type="email"
-                        className="w-full p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-blue-700"
+                        className="w-full p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-blue-500"
                         placeholder={
                             formatMessage({
                                 id: 'content'
