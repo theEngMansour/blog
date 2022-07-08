@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import { useIntl } from 'react-intl';
 import {Editor, EditorState, convertToRaw, RichUtils} from 'draft-js';
 import 'draft-js/dist/Draft.css';
 
@@ -7,6 +8,8 @@ export default function TextEditor(props) {
         EditorState.createEmpty()
     )
     const [editorData, setEditorData] = useState()
+
+    const { formatMessage } = useIntl()
 
     const handleSend = () => {
         props.sendToParent(editorData)
@@ -19,26 +22,28 @@ export default function TextEditor(props) {
         }
 
         return (
-            <span onMouseDown={onClickButton} className="mx-2">{props.label}</span>
+            <div onMouseDown={onClickButton} style={{ fontFamily: "Jannat"}} 
+                className="m-1 select-none text-black bg-white uppercase px-5 py-1.5 rounded-full text-[10px] tracking-wide hover:outline hover:outline-2 hover:outline-blue-500">
+                {props.label}
+            </div>
         )
     }
 
     const BLOCK_TYPES = [
-        { label: "H1", style: "header-one"},
-        { label: "H2", style: "header-two"},
-        { label: "H3", style: "header-three"},
-        { label: "H4", style: "header-four"},
-        { label: "H5", style: "header-five"},
-        { label: "H6", style: "header-six"},
-        { label: "blockquote", style: "blockquote"},
-        { label: "code-block", style: "code-block"},
-        { label: "unordered", style: "unordered-list-item"},
-        { label: "ordered", style: "ordered-list-item"}
+        { label: formatMessage({id: 'header-one'}), style: "header-one"},
+        { label: formatMessage({id: 'header-two'}), style: "header-two"},
+        { label: formatMessage({id: 'header-three'}), style: "header-three"},
+        { label: formatMessage({id: 'header-four'}), style: "header-four"},
+        { label: formatMessage({id: 'header-five'}), style: "header-five"},
+        { label: formatMessage({id: 'header-six'}), style: "header-six"},
+        { label: formatMessage({id: 'blockquote'}), style: "header-six"},
+        { label: formatMessage({id: 'ordered'}), style: "ordered-list-item"},
+        { label: formatMessage({id: 'unordered'}), style: "unordered-list-item"}
     ]
 
     const BlockStyleControls = (props) => {
         return (
-            <div>
+            <>
                 {BLOCK_TYPES.map((type) => {
                     return (
                         <StyleButton
@@ -49,7 +54,7 @@ export default function TextEditor(props) {
                         />
                     )
                 })}
-            </div>
+            </>
         )
     }
 
@@ -60,10 +65,19 @@ export default function TextEditor(props) {
 
     return (
         <React.Fragment>
-            <div className='RichEditor-controls'>
+            <div className='flex justify-center flex-wrap mb-3'>
                 <BlockStyleControls onToggle={onBlockClick} />
             </div>
-            <div className="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none my-2">
+            <span
+                className="w-full p-4 pr-7 text-sm rounded-lg border-0 focus:outline-blue-700 mb-4"
+            >
+                {
+                    formatMessage({
+                        id: 'steps'
+                    })
+                }
+            </span>
+            <div className="w-full bg-white h-28 p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-blue-700 mt-4">
                 <Editor 
                     editorState={editorState} 
                     onChange={(editorState) => {
