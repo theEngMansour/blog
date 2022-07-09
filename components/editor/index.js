@@ -23,7 +23,7 @@ export default function TextEditor(props) {
 
         return (
             <div onMouseDown={onClickButton} style={{ fontFamily: "Jannat"}} 
-                className="m-1 select-none text-black bg-white uppercase px-5 py-1.5 rounded-full text-[10px] tracking-wide hover:outline hover:outline-2 hover:outline-blue-500">
+                className="m-1 select-none text-black bg-white uppercase px-5 py-1.5 rounded-full text-[10px] tracking-wide hover:outline hover:outline-2 hover:outline-[#f8931f]">
                 {props.label}
             </div>
         )
@@ -69,7 +69,7 @@ export default function TextEditor(props) {
                 <BlockStyleControls onToggle={onBlockClick} />
             </div>
             <span
-                className="w-full p-4 pr-7 text-sm rounded-lg border-0 focus:outline-blue-700 mb-4"
+                className="w-full p-4 pr-7 text-sm rounded-lg border-0 focus:outline-[#57be6d] mb-4 text-gray-500"
             >
                 {
                     formatMessage({
@@ -77,7 +77,7 @@ export default function TextEditor(props) {
                     })
                 }
             </span>
-            <div className="w-full bg-white h-28 p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-blue-700 mt-4">
+            <div className="w-full bg-white p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-[#57be6d] mt-4">
                 <Editor 
                     editorState={editorState} 
                     onChange={(editorState) => {

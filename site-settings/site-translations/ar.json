@@ -90,6 +90,8 @@
   "header-five": "العنوان 5",
   "header-six": "العنوان 6",
   "blockquote": "أقتباس",
+  "upload.image": "إدراج صورة",
+  "upload.image.sub": " إضغط هنا لإدراج الصور PNG, JPG",
   "ordered": "قائمة مرتبة",
   "unordered": "قائمة غير مرتبة",
   "alert.photos": "! قم بإضافة صورة واحدة على الاقل",
