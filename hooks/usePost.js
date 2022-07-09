@@ -19,11 +19,18 @@ export function useMyPosts(jwt) {
     const token = { headers: {Authorization: jwt} };
     const fetcher = (url, token) => axios.get(url, token).then(res => res?.data)
     const { data, error } = useSWR([`${URL}/my-posts`, token], fetcher)
+
     return {
         data,
         error,
         loading: !data && !error,
     }
+}
+
+export async function create(jwt, data) {
+    const token = { headers: {Authorization: jwt} };
+    const post = await axios.post(`${URL}/create`, data, token)
+    return post;
 }
 
 export function usePost(postId) {

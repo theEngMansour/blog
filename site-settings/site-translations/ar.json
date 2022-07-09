@@ -96,6 +96,10 @@
   "unordered": "قائمة غير مرتبة",
   "alert.photos": "! قم بإضافة صورة واحدة على الاقل",
   "alert.content": "يوجد حقول فارغة !",
+  "alert.photo.title": "لايوجد صور",
+  "alert.photo.sub": "قم بإدراج صورة واحدة على الاقل",
+  "alert.content.title": "توجد حقول فارغة",
+  "alert.content.sub": "قم باتعبئة جميع الحقول",
   "close.camera": "تم إغلاق الكاميرا"
 }
   

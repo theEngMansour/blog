@@ -32,25 +32,21 @@ export default function GetLocation(props) {
         <Box
             sx={{display: 'flex', justifyContent: 'center'}}
         >
-            <div>
-                <div className="relative">
-                    <input
-                        disabled
-                        type="text"
-                        className="w-full bg-white p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-[#57be6d]"
-                        value={!loading? data?.address?.country : 'جاري جلب الدولة ...'}
-                    />
-                </div>
+            <div className="relative ml-1">
+                <input
+                    disabled
+                    type="text"
+                    className="w-full bg-white p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-[#57be6d]"
+                    value={!loading? data?.address?.country : 'جاري جلب الدولة ...'}
+                />
             </div>
-            <div className="mx-3">
-                <div className="relative">
-                    <input
-                        disabled
-                        type="text"
-                        className="w-full bg-white p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-[#57be6d]"
-                        value={!loading? data?.address?.state || data?.address?.region : 'جاري جلب المنطقة ...'}
-                    />
-                </div>
+            <div className="relative mr-1">
+                <input
+                    disabled
+                    type="text"
+                    className="w-full bg-white p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-[#57be6d]"
+                    value={!loading? data?.address?.state || data?.address?.region : 'جاري جلب المنطقة ...'}
+                />
             </div>
         </Box>
     )

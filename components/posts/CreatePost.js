@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import Image from 'next/image';
 import TextEditor from 'components/editor';
 import GetLocation from 'components/location';
@@ -6,13 +6,14 @@ import { usePhotoGallery } from 'hooks/usePhotoGallery';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Autoplay } from 'swiper';
+import { Alert } from 'components';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-export default function CreatePost() {
+export default function CreatePost(props) {
     const [title, setTitle] = useState()
-    const [content, setContent] = useState()
+    const [contents, setContents] = useState()
     const [steps, setSteps] = useState()
     const [photos, setPhotos] = useState([])
     const [country, setCountry] = useState()
@@ -32,7 +33,7 @@ export default function CreatePost() {
 
     useEffect(() => {
         setAlert({...alert, photos: false, content: false}) 
-    }, [title, content, steps, photos])
+    }, [title, contents, steps, photos])
 
     const swiper_settings = {
         navigation: true,
@@ -46,8 +47,13 @@ export default function CreatePost() {
 
     const validator = () => {
         if(photos.length > 0) {
-            if (title && content && steps) {
-                console.log('sucessfuly')
+            if (title && contents && steps) {
+                props.title(title)
+                props.contents(contents)
+                props.steps(steps)
+                props.photos(photos)
+                props.country(country)
+                props.region(region)
             } else {
                 setAlert({...alert, content: true})
             }
@@ -68,8 +74,20 @@ export default function CreatePost() {
                 </p>
             </div>
             <div className="max-w-lg mx-auto text-center">
-                {alert.photos &&(<h1>No enter any photo</h1>)}
-                {alert.content &&(<h1>No enter any content</h1>)}
+                {alert.photos && (
+                    <Alert 
+                        type="error" 
+                        title={formatMessage({id: 'alert.photo.title'})}
+                        text={formatMessage({id: 'alert.photo.sub'})}
+                    />
+                )}
+                {alert.content && (
+                    <Alert 
+                        type="error" 
+                        title={formatMessage({id: 'alert.content.title'})}
+                        text={formatMessage({id: 'alert.content.sub'})}
+                    />
+                )}
             </div>
             <div className="max-w-md mx-auto mt-8 mb-0 space-y-4">
                 <div>
@@ -82,6 +100,7 @@ export default function CreatePost() {
                                     id: 'title'
                                 })
                             }
+                            onChange={(e) => setTitle(e.target.value)}
                         />
                     </div>
                 </div>
@@ -95,6 +114,7 @@ export default function CreatePost() {
                                     id: 'content'
                                 })
                             }
+                            onChange={(e) => setContents(e.target.value)}
                         />
                     </div>
                 </div>
@@ -138,7 +158,7 @@ export default function CreatePost() {
                 <div className="flex items-center justify-end">
                     <button type="submit"
                         onClick={validator}
-                        className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-[#57be6d] rounded-lg outline-none border-0">
+                        className="inline-block hover:bg-[#f8931f] px-5 py-3 ml-3 text-sm font-medium text-white bg-[#57be6d] rounded-lg outline-none border-0">
                         {
                             formatMessage({
                                 id: 'is.ok'
