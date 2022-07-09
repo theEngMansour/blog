@@ -64,8 +64,9 @@ export default function CreatePost(props) {
 
     return (
         <React.Fragment>
-        <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
+        <div className="max-w-screen-xl px-4 pb-16 pt-0 mx-auto sm:px-6 lg:px-8">
             <div className="max-w-lg mx-auto text-center">
+                <Image src="/logo/now-logo.svg" className="m-0" width={'200px'} height={'150px'} alt="logo"/>     
                 <h1 style={{ fontFamily: "Jannat"}} className="text-2xl text-[#57be6d] font-bold sm:text-3xl m-0">
                     <FormattedMessage id={'title.ask'}/>
                 </h1>

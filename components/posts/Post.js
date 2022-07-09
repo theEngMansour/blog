@@ -6,7 +6,7 @@ export default function Posts({ items = []}) {
     return (
         <React.Fragment>
             {
-                items.slice().reverse().map((post) => 
+                items.map((post) => 
                     <div key={post.id}>
                         <Link href={`/posts/${post.id}`} prefetch >On Link</Link>
                         <li>{post.title}</li>

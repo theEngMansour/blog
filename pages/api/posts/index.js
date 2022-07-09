@@ -14,7 +14,10 @@ const paginate = async ({page = 1, limit = 5}) => {
             images: true
         },
         take: limit,
-        skip: skip
+        skip: skip,
+        orderBy: {
+            createdAt: 'desc'
+        }
     })
     const pages = Math.ceil(await prisma.post.count()/limit)
     return {
