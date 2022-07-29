@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { Authenticated } from 'layouts';
 import { AuthContext } from 'layouts/AuthContext';
 import { CreatePost } from 'components/posts';
 import { create } from 'hooks/usePost';
@@ -37,7 +38,7 @@ export default function Create() {
     }, [title, contents, steps])
 
     return (
-        <React.Fragment>
+        <Authenticated>
             <CreatePost 
                 title={setTitle} 
                 contents={setContents}
@@ -46,6 +47,6 @@ export default function Create() {
                 country={setCountry} 
                 region={setRegion}
             />
-        </React.Fragment>
+        </Authenticated>
     )
   }

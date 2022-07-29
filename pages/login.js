@@ -114,13 +114,13 @@ export default function Login() {
 }
 
 function NoAccount() {
-    return (
-      <Typography align="center">
-        <Link href="/register" passHref>
-          <MuiLink variant="body2">
-            <FormattedMessage id={'dontHaveAccount'}/>
-          </MuiLink>
-        </Link>
-      </Typography>
-    )
-  }
+  return (
+    <Typography align="center">
+      <Link href="/register" passHref>
+        <MuiLink variant="body2">
+          <FormattedMessage id={'dontHaveAccount'}/>
+        </MuiLink>
+      </Link>
+    </Typography>
+  )
+}

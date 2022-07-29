@@ -4,6 +4,7 @@ import moment from 'site-settings/moment';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Like } from 'components/like';
 import { Comment } from 'components/comment';
+import {Editor, EditorState, convertFromRaw} from 'draft-js'
 import { Pagination, Navigation, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -12,6 +13,9 @@ import 'swiper/css/navigation';
 export default function ShowPost({ item = []}) {
     const [likeCount, setLikeCount] = useState()
 
+    const contentState = convertFromRaw(JSON.parse(item?.steps))
+    const steps = EditorState.createWithContent(contentState)
+    
     const swiper_settings = {
         navigation: true,
         pagination: {
@@ -55,7 +59,7 @@ export default function ShowPost({ item = []}) {
                         <h3 className="m-0 mt-4 font-bold text-[#20C67B] font-[Jannat]">المحتوى</h3>
                         <p>{item?.contents}</p>
                         <h3 className="m-0 mt-4 font-bold text-[#20C67B] font-[Jannat]">ملخص</h3>
-                        <p>{item?.steps}</p>
+                        <Editor editorState={steps} readOnly={true} />
                         <div className="flex">
                             <p className="ml-5 font-semibold text-[#20C67B] font-[Jannat]">{item?.country}</p>
                             <p className="ml-5 font-semibold text-[#f3b121] font-[Jannat]">{item?.region}</p>

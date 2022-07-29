@@ -88,9 +88,7 @@ function SwipeableEdgeDrawer(props) {
             overflow: 'auto',
           }}
         >
-          <Button sx={{ fontSize: 16}}>تعديل المنشور</Button>
-          <Button sx={{ fontSize: 16}}>الانتقال للمنشور</Button>
-          <Button sx={{ fontSize: 16}}>حذف المنشور</Button>
+          {props.children}
           <Button sx={{ color: 'red', mt: 2, fontSize: 16}} onClick={toggleDrawer(false)}>إلغاء</Button>
         </StyledBox>
       </SwipeableDrawer>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import TextEditor from 'components/editor';
 import GetLocation from 'components/location';
@@ -7,6 +7,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Autoplay } from 'swiper';
 import { Alert } from 'components';
+import { EditorState } from 'draft-js';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -120,7 +121,7 @@ export default function CreatePost(props) {
                     </div>
                 </div>
                 <div> 
-                    <TextEditor sendToParent={setSteps} />
+                    <TextEditor editorState={EditorState.createEmpty()} sendToParent={setSteps} />
                 </div>
                 <div ref={takePhotoRef} onClick={takePhoto}>
                     {photos.length > 0 ? 

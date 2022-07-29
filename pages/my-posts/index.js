@@ -10,27 +10,25 @@ import { FormattedMessage, useIntl } from 'react-intl';
 export default function Index() {
     const [isOpen, setIsOpen] = useState(false)
     const {jwt} = useContext(AuthContext)
+
+    
     const {data, loading} = useMyPosts(jwt)
     const { formatMessage } = useIntl()
-    
+   
+    if(loading) return <h1>Loading</h1>
+   
     return (
         <Authenticated>
             <Head>
                 <title>{formatMessage({id: 'title.profile'})}</title>
             </Head>
             <MainLayout>
-            {loading 
-            ?
-            <h1>Loading !</h1>
-            : 
-            data?.length > 0 ? (
+            {data?.length > 0 ? (
                 <React.Fragment>
                     <MyPost items={data || []} />
                 </React.Fragment>
-            ) : (<NoPost />)
+                ) : (<NoPost />)
             }
-            <Button className="bg-red-900" onClick={() => setIsOpen(true)}>open</Button>
-            <Swipeable isOpen={isOpen} value={setIsOpen} />
             </MainLayout>
         </Authenticated>
     )
@@ -40,6 +38,4 @@ function NoPost() {
     return (
       <h1>no post</h1>
     )
-  }
-
-  
+}

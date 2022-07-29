@@ -1,18 +1,29 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import { useIntl } from 'react-intl';
 import {Editor, EditorState, convertToRaw, RichUtils} from 'draft-js';
 import 'draft-js/dist/Draft.css';
 
 export default function TextEditor(props) {
-    const [editorState, setEditorState] = useState(() => 
-        EditorState.createEmpty()
-    )
+    const [editorState, setEditorState] = useState(props.editorState)
+    // EditorState.createEmpty()
+    
     const [editorData, setEditorData] = useState()
 
     const { formatMessage } = useIntl()
 
+    useEffect(() => {
+        handleSend()
+        focusEditor()
+    }, [editorData])
+
     const handleSend = () => {
         props.sendToParent(editorData)
+    }
+
+    const editor = useRef()
+
+    function focusEditor() {
+        editor.current.focus();
     }
 
     const StyleButton = (props) => {
@@ -20,7 +31,6 @@ export default function TextEditor(props) {
             e.preventDefault();
             props.onToggle(props.style)
         }
-
         return (
             <div onMouseDown={onClickButton} style={{ fontFamily: "Jannat"}} 
                 className="m-1 select-none text-black bg-white uppercase px-5 py-1.5 rounded-full text-[10px] tracking-wide hover:outline hover:outline-2 hover:outline-[#f8931f]">
@@ -77,8 +87,9 @@ export default function TextEditor(props) {
                     })
                 }
             </span>
-            <div className="w-full bg-white p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-[#57be6d] mt-4">
+            <div onClick={focusEditor} className="w-full bg-white p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-[#57be6d] mt-4">
                 <Editor 
+                    ref={editor}
                     editorState={editorState} 
                     onChange={(editorState) => {
                         setEditorState(editorState)

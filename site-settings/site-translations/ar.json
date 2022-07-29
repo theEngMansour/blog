@@ -100,6 +100,11 @@
   "alert.photo.sub": "قم بإدراج صورة واحدة على الاقل",
   "alert.content.title": "توجد حقول فارغة",
   "alert.content.sub": "قم باتعبئة جميع الحقول",
+  "title.edit": "تعديل المشاركة",
+  "edit.welcome": "صفحة تعديل مشاركة",
+  "sucess.is.ok.title": "تعديل البيانات",
+  "sucess.is.ok": "تم تحديث المنشور بنجاح للإنتقال لمنشور ",
+  "sucess.is.ok.link": "إضغط هنا",
   "close.camera": "تم إغلاق الكاميرا"
 }
   

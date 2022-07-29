@@ -6,10 +6,18 @@ async function handler(req, res) {
     try {
         if (req.method !== 'PUT') return res.status(400).json({message: 'method no put'})
         const {title, contents, steps} = req.body;
-        const updatePost = await prisma.post.updateMany({
+        const post = await prisma.post.findMany({
             where: {
                 id: Number(req.query.id),
                 userId: Number(req.user.id)
+            }
+        });
+
+        if(post.length == 0) res.status(401).json();
+
+        const updatePost = await prisma.post.update({
+            where: {
+                id: Number(req.query.id)
             },
             data: {
                 title,

@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useContext} from 'react';
+import * as yup from 'yup';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import * as yup from 'yup';
 import { 
     Button, 
     Box, 

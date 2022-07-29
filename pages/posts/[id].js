@@ -20,7 +20,6 @@ export default function Show({params}) {
 
     const { post, loading } = usePost(params?.id)
 
-
     return (
         <div>
             <Head>

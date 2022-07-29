@@ -33,12 +33,31 @@ export async function create(jwt, data) {
     return post;
 }
 
+export async function deletePost(jwt, postId) {
+    await axios.delete(`${URL}/my-posts/delete`, {
+        data: {
+            'postId': postId
+        },
+        headers: {
+            Authorization: jwt
+        }
+    })
+}
+
 export function usePost(postId) {
     const fetcher = (url) => axios.get(url).then(res => res?.data)
     const { data: post, error, mutate } = useSWR(`${URL}/${postId}`, fetcher)
+ 
+    const edit = async (jwt, data) => {
+        const token = { headers: {Authorization: jwt} };
+        const res = await axios.put(`${URL}/my-posts/${postId}/update`, data, token)
+        await mutate()
+        return res;
+    }
 
     return {
         post,
+        edit,
         error,
         loading: !post && !error,
     }

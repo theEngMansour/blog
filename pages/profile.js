@@ -7,7 +7,7 @@ import Head from 'next/head';
 import { AuthLayout } from 'layouts';
 import { useProfile } from 'hooks/useAuth';
 import { AuthContext } from 'layouts/AuthContext';
-import { Details, Avatar } from 'components/profile';
+import { Avatar, Details, Dashboard } from 'components/profile';
 import { Model } from 'components';
 import { useIntl } from 'react-intl';
 import { usePhotoGallery } from 'hooks/usePhotoGallery';
@@ -56,10 +56,11 @@ export default function Profile() {
                 <title>{formatMessage({id: 'title.profile'})}</title>
             </Head>
             <Model title={'model.title'} description={'model.description'} open={showAlert} close={setShowAlert} acceptor={onSubmit} />
-            <AuthLayout title="title.profile">
-                <Avatar userImg={userImg} takePhoto={takePhoto} />
-                <Details name={name} email={email} userName={setName} password={setPassword} showAlert={setShowAlert} />
-            </AuthLayout>
+            {/* <AuthLayout title="title.profile"> */}
+                {/* <Avatar userImg={userImg} takePhoto={takePhoto} /> */}
+                {/* <Details name={name} email={email} userName={setName} password={setPassword} showAlert={setShowAlert} /> */}
+            {/* </AuthLayout> */}
+             <Dashboard />
             <br className="mt-10"></br>
         </Authenticated>
     )

@@ -23,7 +23,6 @@ export default function Index() {
       : 
       data?.posts?.length > 0 ? (
         <React.Fragment>
-          
           <Posts items={data?.posts || []} />
           <Pages count={data?.pages} page={Number(page)} />
         </React.Fragment>
