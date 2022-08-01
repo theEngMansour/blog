@@ -1,39 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Head from 'next/head';
-
 import { MainLayout } from 'layouts';
-import { usePosts } from 'hooks/usePost';
-import { Posts, Pages } from 'components/posts'
-import { useRouter } from 'next/router';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { Welcome } from 'components/Landing';
 
 export default function Index() {
-  const router = useRouter();
-  const page = router.query.page || 1;
-  const {data, loading} = usePosts({ page })
-  const { formatMessage } = useIntl()
   return (
     <MainLayout>
       <Head>
-        <title>{formatMessage({id: 'title.profile'})}</title>
+        <title>Home</title>
       </Head>
-      {loading 
-      ?
-      <h1>Loading !</h1>
-      : 
-      data?.posts?.length > 0 ? (
-        <React.Fragment>
-          <Posts items={data?.posts || []} />
-          <Pages count={data?.pages} page={Number(page)} />
-        </React.Fragment>
-      ) : (<NoPost />)
-      }
+        <Welcome />
     </MainLayout>
-  )
-}
-
-function NoPost() {
-  return (
-    <h1>no post</h1>
   )
 }

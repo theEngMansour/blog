@@ -7,9 +7,9 @@ export default function Main({children}) {
     return (
         <React.Fragment>
             <Header/>
-            <Container component="main" sx={{my: 0.1}}>
+            <div component="main" sx={{my: 0.1}}>
                 {children}
-            </Container>
+            </div>
             <Footer/>
         </React.Fragment>
     )
