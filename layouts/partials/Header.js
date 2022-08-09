@@ -1,164 +1,42 @@
-import * as React from 'react';
-import {
-  AppBar,
-  Box,
-  Toolbar,
-  Typography,
-  Menu,
-  Container,
-  Avatar,
-  Button,
-  Tooltip,
-  MenuItem
-} from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import AdbIcon from '@mui/icons-material/Adb';
-
-const pages = ['كيف يعمل', 'المزايا', 'المطورون', 'الدعم'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
-const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
+import React from 'react';
+import Image from 'next/image';
+const Header = () => {
   return (
-    <AppBar position="static" variant='0'>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+  <section className="bg-gradient-to-r from-blue-100 via-white to-blue-50 overflow-hidden">
+    <div className="bg-tarnsparent">
+      <nav className="flex justify-between p-6 px-4">
+       <Image src={'/logo/logo.svg'} width={'150%'} height={'100%'} />
+      </nav>
+    </div>
+    <div className="md:py-4">
+      <div className="container mx-auto">
+        <div className="flex flex-center xl:items-center">
+          <div className="w-full mb-0 text-center">
+            <p style={{ fontFamily: "Montserrat-Bold"}} className="text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight select-none m-0">أصنــع ماتحــب</p>
+            <p style={{ fontFamily: "Montserrat-Bold"}} className="text-4xl md:text-5xl lg:text-[3.35rem] leading-tight tracking-tight select-none text-blue-800 m-0 md:mt-4">وشارك ماتصنع !</p>
+            <p style={{ fontFamily: "Montserrat-Light"}} className="mb-8 text-lg md:text-xl text-gray-500 font-medium select-none">كن من النخبـة وشـارك المحتـوى العـربي</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="bg-blue-300 lg:py-[120px] md:w-1/2 w-[90%] md:h-[400px] m-auto">
+      <div className="-mx-4 flex flex-wrap justify-center">
+        <div className="w-full px-4 lg:w-10/12">
+          <div className="relative z-20 h-[300px] overflow-hidden rounded-lg md:h-[450px]">
+              <div className="absolute top-0 left-0 z-10 flex md:h-32 h-full w-full items-center justify-center bg-primary bg-opacity-90">
+                <p className="absolute z-20 flex h-20 w-20 items-center justify-center rounded-full bg-white text-primary md:h-[100px] md:w-[100px]">
+                  <span className="absolute top-0 right-0 z-[-1] h-full w-full animate-ping rounded-full bg-white bg-opacity-20 delay-300 duration-1000"></span>
+                  {/* <Image src={'/svg/play.svg'} width={400} height={400} /> */}
+                </p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <br></br>
+    <br></br>
+    <br></br>
+  </section>
   );
 };
-export default ResponsiveAppBar;
+export default Header;

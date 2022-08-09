@@ -1,20 +1,25 @@
 * {
-    font-family: 'NotoRegular';
+    font-family: 'Montserrat-Regular';
 }
 
 @font-face { 
-    font-family: "NotoBold"; 
-    src: url(../public/fonts/NotoSansArabic-Bold.ttf); 
+    font-family: "Montserrat-Bold"; 
+    src: url(../public/fonts/Montserrat-Arabic-Bold.ttf); 
 }
   
 @font-face { 
-    font-family: "NotoRegular"; 
-    src: url(../public/fonts/NotoSansArabic-Regular.ttf); 
+    font-family: "Montserrat-Medium"; 
+    src: url(../public/fonts/Montserrat-Arabic-Medium.ttf); 
 }
 
 @font-face { 
-    font-family: "Jannat"; 
-    src: url(../public/fonts/Jannat.ttf); 
+    font-family: "Montserrat-Regular"; 
+    src: url(../public/fonts/Montserrat-Arabic-Regular.ttf); 
+}
+
+@font-face { 
+    font-family: "Montserrat-Light"; 
+    src: url(../public/fonts/Montserrat-Arabic-Light.ttf); 
 }
 
 .ck-editor__editable:not(.ck-editor__nested-editable) {
