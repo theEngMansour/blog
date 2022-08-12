@@ -1,15 +1,16 @@
 import React from 'react';
 import Head from 'next/head';
 import { MainLayout } from 'layouts';
-import { Welcome } from 'components/Landing';
+import { Welcome, Feature } from 'components/Landing';
 
 export default function Index() {
   return (
-    <MainLayout>
+    <React.Fragment>
       <Head>
         <title>Home</title>
       </Head>
-        <Welcome />
-    </MainLayout>
+      <Welcome />
+        <Feature />
+    </React.Fragment>
   )
 }

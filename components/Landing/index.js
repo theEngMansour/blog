@@ -1,5 +1,6 @@
 import Welcome from './Welcome';
-
+import Feature  from './Feature';
 export {
-    Welcome
+    Welcome,
+    Feature 
 }
