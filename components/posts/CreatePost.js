@@ -3,10 +3,12 @@ import Image from 'next/image';
 import TextEditor from 'components/editor';
 import GetLocation from 'components/location';
 import { usePhotoGallery } from 'hooks/usePhotoGallery';
+import { TagsInput } from 'components/inputs';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Autoplay } from 'swiper';
 import { Alert } from 'components';
+import { useTags } from 'hooks/useTags';
 import { EditorState } from 'draft-js';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -20,10 +22,13 @@ export default function CreatePost(props) {
     const [country, setCountry] = useState()
     const [region, setRegion] = useState()
     const [alert, setAlert] = useState({photos: false, content: false})
+    const [tags, setTags] = useState([])
 
     const takePhotoRef = useRef()
     const {takePhoto, blobUrl} = usePhotoGallery()
     const { formatMessage } = useIntl()
+
+    const {data: tagsList} = useTags()
 
     useEffect(() => {
         if (blobUrl) {
@@ -55,6 +60,7 @@ export default function CreatePost(props) {
                 props.photos(photos)
                 props.country(country)
                 props.region(region)
+                props.tags(tags)
             } else {
                 setAlert({...alert, content: true})
             }
@@ -123,6 +129,13 @@ export default function CreatePost(props) {
                 <div> 
                     <TextEditor editorState={EditorState.createEmpty()} sendToParent={setSteps} />
                 </div>
+                <TagsInput
+                    sx={{my:2}}
+                    label='input.tags'
+                    onChange={setTags}
+                    value={tags}
+                    options={tagsList.map(e => ({label: e.name, value: e.id}))}
+                />
                 <div ref={takePhotoRef} onClick={takePhoto}>
                     {photos.length > 0 ? 
                         <Swiper {...swiper_settings} modules={[Pagination, Navigation, Autoplay]}>   

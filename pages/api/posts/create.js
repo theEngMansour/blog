@@ -11,16 +11,21 @@ apiRoute.post(async (req, res) => {
     await postValidationRules(req, res)
     const errors = validationResult(req)
     if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
-    const {title, contents, steps, country, region} = req.body;
+    const {title, contents, steps, country, region, tags} = req.body;
     try {
         const post = await prisma.post.create({
             data: {
                 title, 
                 contents, 
-                steps, 
+                steps,
                 country, 
                 region,
-                userId: req.user.id
+                userId: req.user.id,
+                tags: {
+                    createMany: {
+                        data: JSON.parse(tags)
+                    }
+                }
             }
         });
         req.files.map(async (file) => {

@@ -1,5 +1,5 @@
 export default function Example() {
   return (
-    <h1>s</h1>
+    <h1>Header</h1>
   )
 }

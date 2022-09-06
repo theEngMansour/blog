@@ -29,8 +29,8 @@ export function useMyPosts(jwt) {
 
 export async function create(jwt, data) {
     const token = { headers: {Authorization: jwt} };
-    const post = await axios.post(`${URL}/create`, data, token)
-    return post;
+    const postId = await axios.post(`${URL}/create`, data, token) // res => postId // 
+    return postId
 }
 
 export async function deletePost(jwt, postId) {

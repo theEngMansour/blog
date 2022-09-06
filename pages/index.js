@@ -10,7 +10,7 @@ export default function Index() {
         <title>Home</title>
       </Head>
       <Welcome />
-        <Feature />
+        {/* <Feature /> */}
     </React.Fragment>
   )
 }
