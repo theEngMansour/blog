@@ -14,6 +14,8 @@ import { IntlProvider } from 'react-intl';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import '../styles/globals.css';
 import '../styles/fonts.css';
+import 'bootstrap/dist/css/bootstrap.css';
+
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
@@ -25,6 +27,7 @@ export default function MyApp(props) {
 
   useEffect(() => {
     setShowChild(true)
+    const bootstrap = require('bootstrap')
   }, [])
 
   if(!showChild){
