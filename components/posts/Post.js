@@ -32,7 +32,7 @@ export default function Posts({ items = []}) {
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <Link href={`/posts/${post.id}`} prefetch>
+                                        <Link href={`/posts/${post.id}`} passHref>
                                             <Button size="small">المزيد</Button>
                                         </Link>
                                     </CardActions>

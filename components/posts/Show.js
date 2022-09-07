@@ -35,7 +35,7 @@ export default function ShowPost({ item = []}) {
                             return (
                                 <SwiperSlide key={img.id}>
                                     <div className="flex justify-center">
-                                     <Image src={img.img_uri} width={'300px'} height={'300px'} />
+                                     <Image src={img.img_uri} width={'300px'} height={'300px'} alt={img.img_uri} />
                                     </div>
 
                                 </SwiperSlide>
