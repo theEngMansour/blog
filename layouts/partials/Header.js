@@ -52,7 +52,7 @@ export default function Header() {
           <div className="w-full md:w-1/2 px-4">
             <div className="mt-4 sm:mt-0">
               <Swiper {...swiper_settings} modules={[Pagination, Navigation, Autoplay]}>   
-{/*                 <SwiperSlide> 
+                <SwiperSlide> 
                   <Image src={'/foods/1.jpg'} width={'3508'} height={'2492'} alt={'food'} />
                 </SwiperSlide>
                 <SwiperSlide> 
@@ -60,7 +60,7 @@ export default function Header() {
                 </SwiperSlide>
                 <SwiperSlide> 
                   <Image src={'/foods/3.jpg'} width={'3508'} height={'2492'} alt={'food'} />
-                </SwiperSlide> */}
+                </SwiperSlide>
               </Swiper>
             </div>
           </div>
