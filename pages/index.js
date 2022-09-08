@@ -5,12 +5,12 @@ import { Welcome, Feature } from 'components/Landing';
 
 export default function Index() {
   return (
-    <React.Fragment>
+    <MainLayout>
       <Head>
         <title>Home</title>
       </Head>
       <Welcome />
-        {/* <Feature /> */}
-    </React.Fragment>
+
+    </MainLayout>
   )
 }
