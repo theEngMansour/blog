@@ -53,13 +53,13 @@ export default function Header() {
             <div className="mt-4 sm:mt-0">
               <Swiper {...swiper_settings} modules={[Pagination, Navigation, Autoplay]}>   
                 <SwiperSlide> 
-                  <Image src={'/foods/1.jpg'} width={'3508'} height={'2492'} alt={'food'} />
+                  <Image src={'/foods/1.png'} width={'3508'} height={'2492'} alt={'food'} />
                 </SwiperSlide>
                 <SwiperSlide> 
-                  <Image src={'/foods/2.jpg'} width={'3508'} height={'2492'} alt={'food'} />
+                  <Image src={'/foods/2.png'} width={'3508'} height={'2492'} alt={'food'} />
                 </SwiperSlide>
                 <SwiperSlide> 
-                  <Image src={'/foods/3.jpg'} width={'3508'} height={'2492'} alt={'food'} />
+                  <Image src={'/foods/3.png'} width={'3508'} height={'2492'} alt={'food'} />
                 </SwiperSlide>
               </Swiper>
             </div>
