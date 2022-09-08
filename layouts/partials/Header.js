@@ -25,15 +25,15 @@ export default function Header() {
     <div className="py-20 md:py-28">
       <div className="container px-4 mx-auto">
         <div className="flex flex-wrap xl:items-center -mx-4">
-          <div className="md:w-[44%] p-1 sm:p-0">
-            <h1 className="text-[46.5px] md:text-5xl lg:text-6xl selection:bg-[#d70133] selection:text-white leading-tight font-bold tracking-tight m-0">
+          <div className="md:w-[44%] px-3 sm:p-0">
+            <h1 className="text-[44.5px] md:text-5xl lg:text-6xl selection:bg-[#d70133] selection:text-white leading-tight font-bold tracking-tight m-0">
               <FormattedMessage id={'header.title1'}/>
               <span className="bg-[#d70133] text-white"> <FormattedMessage id={'header.title2'} /></span>
             </h1>
-            <h1 className="text-[46.5px] md:text-5xl lg:text-6xl selection:bg-[#faaf40] selection:text-white leading-tight font-bold tracking-tight m-0 my-2 text-[#d70133]">
+            <h1 className="text-[43.5px] md:text-5xl lg:text-6xl selection:bg-[#faaf40] selection:text-white leading-tight font-bold tracking-tight m-0 my-2 text-[#d70133]">
               <FormattedMessage id={'header.subtitle'}/>
             </h1>
-            <p style={{ fontFamily: "Montserrat-Light"}} className="mb-8 text-[16.5px] md:text-xl text-gray-500 font-light selection:text-white selection:bg-[#faaf40]">
+            <p style={{ fontFamily: "Montserrat-Light"}} className="mb-8 text-[15.5px] md:text-xl text-gray-500 font-light selection:text-white selection:bg-[#faaf40]">
               <FormattedMessage id={'header.desc'}/>
             </p>
             <div className="flex flex-wrap">
