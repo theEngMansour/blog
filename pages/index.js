@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { MainLayout } from 'layouts';
-import { Welcome, Feature } from 'components/Landing';
+import { Welcome, Feature, HowWork } from 'components/Landing';
 
 export default function Index() {
   return (
@@ -10,6 +10,7 @@ export default function Index() {
         <title>Home</title>
       </Head>
       <Feature />
+      <HowWork />
     </MainLayout>
   )
 }

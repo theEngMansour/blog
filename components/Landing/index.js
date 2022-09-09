@@ -1,6 +1,8 @@
 import Welcome from './Welcome';
-import Feature  from './Feature';
+import Feature from './Feature';
+import HowWork from './HowWork';
 export {
     Welcome,
-    Feature 
+    Feature,
+    HowWork
 }

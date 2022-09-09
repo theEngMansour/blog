@@ -3,10 +3,13 @@ import Image from 'next/image';
 
 export default function Feature() {
     return (
-    <section className="py-[18px] md:pb-32 bg-white">
+    <section className="py-[18px] md:pb-2 bg-[url('/svg/pattern-white.svg')] bg-center">
         <div className="container px-4 mx-auto">
             <div className="md:max-w-4xl mb-12 mx-auto text-center">
-            <h1 className="mb-4 text-3xl text-[#d70133] md:text-4xl leading-tight font-bold tracking-tighter"><FormattedMessage id={'feature.header'}/></h1>
+            <h1 className="mb-4 text-3xl text-[#313131] md:text-4xl leading-tight font-bold tracking-tighter">
+                <FormattedMessage id={'feature.header'}/>
+                <span className="text-[#d70133] border-0 border-solid border-[#faaf40] border-b-[5px]"> <FormattedMessage id={'feature.sub'}/></span>
+            </h1>
             <p style={{ fontFamily: "Montserrat-Light"}} className="text-lg md:text-xl text-gray-600 font-medium m-0"><FormattedMessage id={'feature.subheader'}/></p>
             </div>
             <div className="flex flex-wrap -mx-4">
