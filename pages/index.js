@@ -9,8 +9,7 @@ export default function Index() {
       <Head>
         <title>Home</title>
       </Head>
-      <Welcome />
-
+      <Feature />
     </MainLayout>
   )
 }

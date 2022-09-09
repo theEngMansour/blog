@@ -56,12 +56,10 @@ export default function Profile() {
                 <title>{formatMessage({id: 'title.profile'})}</title>
             </Head>
             <Model title={'model.title'} description={'model.description'} open={showAlert} close={setShowAlert} acceptor={onSubmit} />
-            {/* <AuthLayout title="title.profile"> */}
-                {/* <Avatar userImg={userImg} takePhoto={takePhoto} /> */}
-                {/* <Details name={name} email={email} userName={setName} password={setPassword} showAlert={setShowAlert} /> */}
-            {/* </AuthLayout> */}
-             <Dashboard />
-            <br className="mt-10"></br>
+            <AuthLayout title="title.profile">
+                <Avatar userImg={userImg} takePhoto={takePhoto} />
+                <Details name={name} email={email} userName={setName} password={setPassword} showAlert={setShowAlert} />
+            </AuthLayout>
         </Authenticated>
     )
 }
