@@ -39,7 +39,7 @@ export default function Header() {
           <div className="md:w-[44%] px-3 sm:p-0">
             <h1 className="text-[44.5px] md:text-5xl lg:text-6xl selection:bg-[#d70133] selection:text-white leading-tight font-bold tracking-tight m-0">
               <FormattedMessage id={'header.title1'}/>
-              <span className="bg-[#d70133] text-white"><FormattedMessage id={'header.title2'} /></span>
+              <span className="bg-[#d70133] text-white"> <FormattedMessage id={'header.title2'} /></span>
             </h1>
             <h1 className="text-[43.5px] md:text-5xl lg:text-6xl selection:bg-[#faaf40] selection:text-white leading-tight font-bold tracking-tight m-0 my-2 text-[#d70133]">
               <FormattedMessage id={'header.subtitle'}/>
