@@ -1,6 +1,6 @@
 import prisma from 'lib/prisma';
 
-const paginate = async ({page = 1, limit = 5}) => {
+const paginate = async ({page = 1, limit = 6}) => {
     const skip = limit * (page - 1)
     const posts = await prisma.post.findMany({
         include: {

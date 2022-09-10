@@ -38,28 +38,28 @@ export default function HowWork() {
                     </div>
                 </div>
                 <div dir='rtl' className="w-full md:w-1/2 px-4">
-                    <h2 className="mb-12 text-4xl md:text-5xl leading-tight font-bold tracking-tighter">
+                    <h2 style={{ fontFamily: "Montserrat-Bold"}} className="mb-12 text-4xl md:text-5xl leading-tight tracking-tighter">
                         <FormattedMessage id={'how.work.title'}/>
                     </h2>
                     <div className="flex flex-wrap -mx-4 text-center md:text-right">
                         <div className="w-full md:w-1/2 px-4 mb-8">
                             <div className="inline-flex items-center justify-center mb-4 w-12 h-12 text-xl text-white bg-[#d70133] font-semibold rounded-full">1</div>
-                            <h3 className="mb-2 text-xl font-bold"><FormattedMessage id={'how.work.title.1'}/></h3>
+                            <h3 style={{ fontFamily: "Montserrat-Bold"}} className="mb-2 text-xl font-bold"><FormattedMessage id={'how.work.title.1'}/></h3>
                             <p className="font-medium text-coolGray-500"><FormattedMessage id={'how.work.sub.1'}/></p>
                         </div>
                         <div className="w-full md:w-1/2 px-4 mb-8">
                             <div className="inline-flex items-center justify-center mb-4 w-12 h-12 text-xl text-white bg-[#d70133] font-semibold rounded-full">2</div>
-                            <h3 className="mb-2 text-xl font-bold"><FormattedMessage id={'how.work.title.2'}/></h3>
+                            <h3 style={{ fontFamily: "Montserrat-Bold"}} className="mb-2 text-xl font-bold"><FormattedMessage id={'how.work.title.2'}/></h3>
                             <p className="font-medium text-coolGray-500"><FormattedMessage id={'how.work.sub.2'}/></p>
                         </div>
                         <div className="w-full md:w-1/2 px-4 mb-8">
                             <div className="inline-flex items-center justify-center mb-4 w-12 h-12 text-xl text-white bg-[#d70133] font-semibold rounded-full">3</div>
-                            <h3 className="mb-2 text-xl font-bold"><FormattedMessage id={'how.work.title.3'}/></h3>
+                            <h3 style={{ fontFamily: "Montserrat-Bold"}} className="mb-2 text-xl font-bold"><FormattedMessage id={'how.work.title.3'}/></h3>
                             <p className="font-medium text-coolGray-500"><FormattedMessage id={'how.work.sub.3'}/></p>
                         </div>
                         <div className="w-full md:w-1/2 px-4">
                             <div className="inline-flex items-center justify-center mb-4 w-12 h-12 text-xl text-white bg-[#d70133] font-semibold rounded-full">4</div>
-                            <h3 className="mb-2 text-xl font-bold"><FormattedMessage id={'how.work.title.4'}/></h3>
+                            <h3 style={{ fontFamily: "Montserrat-Bold"}} className="mb-2 text-xl font-bold"><FormattedMessage id={'how.work.title.4'}/></h3>
                             <p className="font-medium text-coolGray-500"><FormattedMessage id={'how.work.sub.4'}/></p>
                         </div>
                     </div>
