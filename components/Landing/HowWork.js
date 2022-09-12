@@ -19,7 +19,7 @@ export default function HowWork() {
     }
 
     return (
-    <section dir='ltr' className="py-10 bg-white overflow-hidden bg-[url('/svg/pattern-white.svg')] bg-center">
+    <section dir='ltr' id="work" className="py-10 bg-white overflow-hidden bg-[url('/svg/pattern-white.svg')] bg-center">
         <div className="container px-4 mx-auto">
             <div className="flex flex-wrap -mx-4">
                 <div className="w-full md:w-1/2 px-4 mb-16 md:mb-0">
