@@ -11,7 +11,10 @@ const paginate = async ({page = 1, limit = 6}) => {
                     img_uri: true
                 }
             },
-            images: true
+            images: true,
+            tags: {
+                select: { tag: true }
+            }
         },
         take: limit,
         skip: skip,

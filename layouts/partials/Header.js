@@ -31,8 +31,44 @@ export default function Header() {
   }
 
   return (
-  <section className="relative bg-white overflow-hidden bg-[url('/svg/pattern-white.svg')] bg-center">
     <Navbar />
+  )
+}
+/* import React, { useContext } from 'react';
+import { AuthContext } from 'layouts/AuthContext';
+import { FormattedMessage } from 'react-intl';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation, Autoplay } from 'swiper';
+import { Storage } from '@capacitor/storage';
+import Image from 'next/image';
+import Navbar from './Navbar';
+import Link from 'next/link';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+// text-[#faaf40]
+// text-[#d70133]
+export default function Header() {
+  const { loggedIn, setLoggedIn } = useContext(AuthContext)
+  const swiper_settings = {
+    navigation: true,
+    pagination: {
+        clickable: true
+    },
+    autoplay: {
+        delay: 3000,
+    }
+  }
+
+  const logOut = async () => {
+    await Storage.remove({key: 'accessToken'})
+    setLoggedIn(false)
+  }
+
+  return (
+  <section className="relative bg-white overflow-hidden bg-[url('/svg/pattern-white.svg')] bg-center">
+   
     <div className="py-[60px] md:py-[55px]">
       <div className="container px-4 mx-auto">
         <div className="flex flex-wrap xl:items-center -mx-4">
@@ -101,4 +137,4 @@ export default function Header() {
     </div>
   </section>
   )
-}
+} */

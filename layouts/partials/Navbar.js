@@ -17,7 +17,7 @@ export default function Navbar() {
     ]
 
   return (
-    <Disclosure as="nav" className="bg-[#d70133]">
+    <Disclosure as="nav" className="bg-white">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -52,7 +52,7 @@ export default function Navbar() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-[#faaf40] text-white' : 'text-white hover:bg-[#faaf40] hover:text-white',
+                          item.current ? 'bg-[#faaf40] text-gray-500' : 'text-gray-500 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium mx-[35px] cursor-pointer'
                         )}
                         aria-current={item.current ? 'page' : undefined}
