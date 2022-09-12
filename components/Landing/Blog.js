@@ -20,9 +20,9 @@ export default function Posts({ items = []}) {
                                     <Image src={post.images[0].img_uri} width={'100%'} height={'100%'} alt={post.title} />
                                 </span>
                                 <div className="mb-4">
-                                    {post.tags.map((tag, index) => 
-                                        <Link href={`tag/${tag?.tag?.slug}?id=${post?.id}`} passHref>
-                                            <span key={index}>
+                                    {post.tags.map(tag => 
+                                        <Link key={tag?.tag?.id} href={`tag/${tag?.tag?.slug}?id=${post?.id}`} passHref>
+                                            <span>
                                                 <span className="inline-block mx-3 py-1 px-3 text-xs leading-5 text-white hover:text-white font-medium uppercase bg-red-500 hover:bg-[#d70133dc] cursor-pointer rounded-full shadow-sm">{tag?.tag?.name}</span>
                                             </span>
                                         </Link>

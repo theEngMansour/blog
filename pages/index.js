@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { MainLayout } from 'layouts';
-import { Welcome, Feature, HowWork, Blog, Tags } from 'components/Landing';
+import { Welcome, Feature, HowWork, Blog, Tags, Contact } from 'components/Landing';
 import { usePosts } from 'hooks/usePost';
 import { useRouter } from 'next/router';
 import { useTags } from 'hooks/useTags';
@@ -22,6 +22,7 @@ export default function Index() {
       <HowWork />
       <Blog items={data?.posts || []} />
       <Tags items={tags || []}/>
+      <Contact />
     </MainLayout>
   )
 }
