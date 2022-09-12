@@ -22,7 +22,7 @@ export default function Posts({ items = []}) {
                                 <div className="mb-4">
                                     {post.tags.map(tag => 
                                         <Link href={`tag/${tag?.tag?.slug}?id=${post?.id}`} passHref>
-                                          <span className="inline-block mx-3 py-1 px-3 text-xs leading-5 text-white hover:text-white font-medium uppercase bg-red-500 hover:bg-[#d70133dc] cursor-pointer rounded-full shadow-sm">{tag?.tag?.name}</span>
+                                          <span key={tag?.tag?.id} className="inline-block mx-3 py-1 px-3 text-xs leading-5 text-white hover:text-white font-medium uppercase bg-red-500 hover:bg-[#d70133dc] cursor-pointer rounded-full shadow-sm">{tag?.tag?.name}</span>
                                         </Link>
                                     )}
                                 </div>

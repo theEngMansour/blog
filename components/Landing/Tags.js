@@ -10,7 +10,7 @@ export default function Tag({items}) {
             <div className="container px-4 mx-auto">
                 <div className="flex flex-wrap -m-3">
                     {items.map(({ id, name, slug, description }) =>
-                        <div className="w-full md:w-1/2 xl:w-1/4 p-3">
+                        <div key={id} className="w-full md:w-1/2 xl:w-1/4 p-3">
                             <div className="p-6 pb-10 bg-white border border-coolGray-100 rounded-md shadow-sm select-none">
                                 <div className="flex flex-wrap items-end justify-between -m-2 mb-7">
                                     <div className="w-auto p-2">
