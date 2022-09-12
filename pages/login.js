@@ -74,7 +74,7 @@ export default function Login() {
               alt="Mansour Ahmed"
               sx={{ width: 100, height: 100 }}
             >
-              <Image src={'/svg/user.svg'} width={40} height={40} />
+              <Image src={'/svg/user.svg'} width={40} height={40} alt={'login'} />
             </Avatar>
           </div>
           <TextField 
