@@ -201,7 +201,7 @@ function Dropdowns({children}) {
     <Menu as="div" className="relative inline-block text-right">
       <div>
         <Menu.Button className="flex w-full items-center text-white justify-center rounded-md border-0 border-gray-300 bg-red-500 px-4 py-2 text-sm font-medium shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
-          <Image src={'/svg/menu-burger-free-icon-font.svg'} width={18.5} height={18.5} alt={'Feature'} />
+          <Image src={'/svg/apps-free-icon-font.svg'} width={16.5} height={16.5} alt={'Feature'} />
           <span className="mx-2"><FormattedMessage id={'meun'}/></span>
         </Menu.Button>
       </div>

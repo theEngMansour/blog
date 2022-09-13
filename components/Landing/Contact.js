@@ -12,7 +12,7 @@ export default function Contact() {
                     <div className="w-full md:w-1/3 px-4 mb-12 md:mb-0">
                         <div className="max-w-xs mx-auto text-center">
                             <div className="inline-flex items-center justify-center w-[50px] h-[50px] bg-red-500 rounded-full">
-                                <Image src={'/svg/hand-holding-heart.svg'} width={27} height={27} alt={'Feature'} />
+                                <Image src={'/svg/comment-free-icon-font.svg'} width={23.5} height={23.5} alt={'Feature'} />
                             </div>
                             <h3 style={{ fontFamily: "Montserrat-Bold"}} className="mb-2 text-2xl md:text-3xl leading-9 text-coolGray-900 font-bold"><FormattedMessage id={'email'} /></h3>
                             <p className="mb-4 text-lg md:text-xl font-medium text-gray-500 leading-7"><FormattedMessage id={'sub.email'} /></p>
@@ -22,7 +22,7 @@ export default function Contact() {
                     <div className="w-full md:w-1/3 px-4 mb-12 md:mb-0">
                         <div className="max-w-xs mx-auto text-center">
                             <div className="inline-flex items-center justify-center w-[50px] h-[50px] bg-red-500 rounded-full">
-                                <Image src={'/svg/hand-holding-heart.svg'} width={27} height={27} alt={'Feature'} />
+                                <Image src={'/svg/phone-call-free-icon-font.svg'} width={23} height={23} alt={'Feature'} />
                             </div>
                             <h3 style={{ fontFamily: "Montserrat-Bold"}} className="mb-2 text-2xl md:text-3xl leading-9 text-coolGray-900 font-bold"><FormattedMessage id={'phone'} /></h3>
                             <p className="mb-4 text-lg md:text-xl font-medium text-gray-500 leading-7"><FormattedMessage id={'sub.phone'} /></p>
@@ -32,7 +32,7 @@ export default function Contact() {
                     <div className="w-full md:w-1/3 px-4 mb-12 md:mb-0">
                         <div className="max-w-xs mx-auto text-center">
                             <div className="inline-flex items-center justify-center w-[50px] h-[50px] bg-red-500 rounded-full">
-                                <Image src={'/svg/hand-holding-heart.svg'} width={27} height={27} alt={'Feature'} />
+                                <Image src={'/svg/megaphone-free-icon-font.svg'} width={23} height={23} alt={'Feature'} />
                             </div>
                             <h3 style={{ fontFamily: "Montserrat-Bold"}} className="mb-2 text-2xl md:text-3xl leading-9 text-coolGray-900 font-bold"><FormattedMessage id={'office'} /></h3>
                             <p className="mb-4 text-lg md:text-xl font-medium text-gray-500 leading-7"><FormattedMessage id={'sub.office'} /></p>
