@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function Posts({ items = []}) {
     return (
         <React.Fragment>
-            <section id="blog" className="py-[34px] bg-white bg-[url('/svg/pattern-white.svg')] bg-left-top bg-no-repeat">
+            <section id="blog" className="py-[34px] bg-white bg-[url('/svg/pattern-white.svg')] bg-left-top">
                 <div className="container px-4 mx-auto">
                     <div className="md:max-w-5xl mx-auto mb-8 md:mb-16 text-center">
                         <h3 style={{ fontFamily: "Montserrat-Bold"}} className="mb-4 text-3xl md:text-5xl leading-tight text-darkCoolGray-900 font-bold tracking-tighter"><FormattedMessage id={'blog.title'} /></h3>

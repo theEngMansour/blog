@@ -1,103 +1,225 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, Fragment } from 'react';
 import { AuthContext } from 'layouts/AuthContext';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, Autoplay } from 'swiper';
-
-import Image from 'next/image';
-import Navbar from './Navbar';
-
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
-// text-[#faaf40]
-// text-[#d70133]
-export default function Header() {
- 
-  const swiper_settings = {
-    navigation: true,
-    pagination: {
-        clickable: true
-    },
-    autoplay: {
-        delay: 3000,
-    }
-  }
-
-  return (
-    <Navbar />
-  )
-}
-/* import React, { useContext } from 'react';
-import { AuthContext } from 'layouts/AuthContext';
-import { FormattedMessage } from 'react-intl';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, Autoplay } from 'swiper';
+import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Storage } from '@capacitor/storage';
+import { FormattedMessage, useIntl } from 'react-intl';
 import Image from 'next/image';
-import Navbar from './Navbar';
 import Link from 'next/link';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 
-// text-[#faaf40]
-// text-[#d70133]
-export default function Header() {
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
+export default function Navbar() {
+  const [click, setClick] = useState(false)
+
   const { loggedIn, setLoggedIn } = useContext(AuthContext)
-  const swiper_settings = {
-    navigation: true,
-    pagination: {
-        clickable: true
-    },
-    autoplay: {
-        delay: 3000,
-    }
-  }
 
   const logOut = async () => {
     await Storage.remove({key: 'accessToken'})
     setLoggedIn(false)
   }
 
+  const { formatMessage } = useIntl()
+
+  const navigation = [
+    { name: formatMessage({id: 'drawer.home'}), href: '#' , current: false },
+    { name: formatMessage({id: 'drawer.feature'}), href: '#feature', current: false},
+    { name: formatMessage({id: 'drawer.work'}), href: '#work', current: false },
+    { name: formatMessage({id: 'drawer.blog'}), href: '#blog', current: false },
+    { name: formatMessage({id: 'drawer.contact'}), href: '#contact', current: false },
+
+  ]
+
   return (
-  <section className="relative bg-white overflow-hidden bg-[url('/svg/pattern-white.svg')] bg-center">
-   
-    <div className="py-[60px] md:py-[55px]">
-      <div className="container px-4 mx-auto">
-        <div className="flex flex-wrap xl:items-center -mx-4">
-          <div className="md:w-[44%] px-3 sm:p-0">
-            <h1 className="text-[44.5px] md:text-5xl lg:text-6xl selection:bg-[#d70133] selection:text-white leading-tight font-bold tracking-tight m-0">
-              <FormattedMessage id={'header.title1'}/>
-              <span className="bg-[#d70133] text-white"> <FormattedMessage id={'header.title2'} /></span>
-            </h1>
-            <h1 className="text-[43.5px] md:text-5xl lg:text-6xl selection:bg-[#faaf40] selection:text-white leading-tight font-bold tracking-tight m-0 my-2 text-[#d70133]">
-              <FormattedMessage id={'header.subtitle'}/>
-            </h1>
-            <p style={{ fontFamily: "Montserrat-Light"}} className="mb-8 text-[15.5px] md:text-xl text-gray-500 font-light selection:text-white selection:bg-[#faaf40]">
-              <FormattedMessage id={'header.desc'}/>
-            </p>
-          
-          </div>
-          <div className="w-full md:w-1/2 px-4">
-            <div className="mt-4 sm:mt-0">
-              <Swiper {...swiper_settings} modules={[Pagination, Navigation, Autoplay]}>   
-                <SwiperSlide> 
-                  <Image src={'/foods/1.png'} width={'3508'} height={'2492'} alt={'food'} />
-                </SwiperSlide>
-                <SwiperSlide> 
-                  <Image src={'/foods/2.png'} width={'3508'} height={'2492'} alt={'food'} />
-                </SwiperSlide>
-                <SwiperSlide> 
-                  <Image src={'/foods/3.png'} width={'3508'} height={'2492'} alt={'food'} />
-                </SwiperSlide>
-              </Swiper>
+    <Disclosure as="nav" className="bg-white">
+      {({ open }) => (
+        <>
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div className="relative flex h-16 items-center justify-between">
+              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                {/* Mobile menu button*/}
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-white bg-red-500 hover:bg-red-500 border-0">
+                  {open ? (
+                    <Image src={'/svg/cross-free-icon-font.svg'} width={20} height={20} alt={'Feature'} />
+                  ) : (
+                    <Image src={'/svg/menu-burger-free-icon-font.svg'} width={20} height={20} alt={'Feature'} />
+                  )}
+                </Disclosure.Button>
+              </div>
+              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                <div className="flex flex-shrink-0 items-center">
+                  <img
+                    className="block h-8 w-auto lg:hidden"
+                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                    alt="Your Company"
+                  />
+                  <img
+                    className="hidden h-8 w-auto lg:block"
+                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                    alt="Your Company"
+                  />
+                </div>
+                <div className="hidden sm:ml-6 sm:block">
+                  <div className="flex space-x-4">
+                    {navigation.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        onClick={() => setClick(item.href)}
+                        className={classNames(
+                          item.current ? 'text-red-500' : 'text-gray-500 hover:text-red-500 hover:font-bold',
+                          'px-3 py-2 rounded-md text-sm font-medium mx-[35px] cursor-pointer no-underline'
+                        )}
+                        aria-current={item.current ? 'page' : undefined}
+                      >
+                        {item.name}
+                      </a>
+                    ))}
+                    {loggedIn? (         
+                      <div className="flex">
+                        <Dropdowns> 
+                          <Menu.Item>
+                            <Link href={'/profile'} passHref>
+                              <a
+                                className="text-gray-700 block px-4 py-2 text-sm bg-gray-100 text-right no-underline"
+                              >
+                                <FormattedMessage id={'drawer.profile'}/>
+                              </a>
+                            </Link>  
+                          </Menu.Item>          
+                          <Menu.Item>
+                            <Link href={'/settings'} passHref>
+                              <a
+                                className="text-gray-700 block px-4 py-2 text-sm bg-gray-100 text-right no-underline"
+                              >
+                                <FormattedMessage id={'drawer.settings'}/>
+                              </a>
+                            </Link>  
+                          </Menu.Item>          
+                          <Menu.Item>
+                            <a
+                              onClick={() => logOut()}
+                              className="text-gray-700 block px-4 py-2 text-sm bg-gray-100 text-right no-underline"
+                            >
+                              <FormattedMessage id={'drawer.logout'}/>
+                            </a>
+                          </Menu.Item>
+                        </Dropdowns>
+                      </div>
+                      ) : (
+                      <div className="flex">
+                        <Dropdowns> 
+                          <Menu.Item>
+                            <Link href={'/login'} passHref>
+                              <a
+                                className="text-gray-700 block px-4 py-2 text-sm bg-gray-100 text-right no-underline"
+                              >
+                                <FormattedMessage id={'header.login'}/>
+                              </a>
+                            </Link>  
+                          </Menu.Item>          
+                          <Menu.Item>
+                            <Link href={'/register'} passHref>
+                              <a
+                                className="text-gray-700 block px-4 py-2 text-sm bg-gray-100 text-right no-underline"
+                              >
+                                <FormattedMessage id={'title.register'}/>
+                              </a>
+                            </Link>  
+                          </Menu.Item>          
+                        </Dropdowns>
+                      </div>
+                      )}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+          <Disclosure.Panel className="sm:hidden">
+            <div className="space-y-1 px-2 pt-2 pb-3">
+              {navigation.map((item) => (
+                <Disclosure.Button
+                  onClick={() => setClick(item.name)}
+                  key={item.name}
+                  as="a"
+                  href={item.href}
+                  className={classNames(
+                    item.current ? 'text-gray-500' : 'text-gray-500 hover:text-red-500 hover:font-bold',
+                    'block px-3 py-2 rounded-md text-base font-medium no-underline'
+                  )}
+                  aria-current={item.current ? 'page' : undefined}
+                >
+                  {item.name}
+                </Disclosure.Button>
+              ))}
+            </div>
+            {loggedIn? (         
+              <div className="flex space-x-4">
+                <Link href={'/settings'} passHref>
+                  <a
+                    className="px-3 py-2 rounded-md text-sm font-medium mx-[35px] cursor-pointer no-underline text-green-500 bg-green-100"
+                  >
+                    <FormattedMessage id={'drawer.settings'}/>
+                  </a>
+                </Link>
+                <a 
+                  onClick={() => logOut()}
+                  className="px-3 py-2 rounded-md text-sm font-medium mx-[35px] cursor-pointer no-underline text-red-500 bg-red-100"
+                >
+                  <FormattedMessage id={'drawer.logout'}/>
+                </a>
+              </div>
+              ) : (
+              <div className="flex space-x-4">
+                <Link href={'/login'} passHref>
+                  <a
+                    className="px-3 py-2 rounded-md text-sm font-medium mx-[35px] cursor-pointer no-underline text-green-500 bg-green-100"
+                  >
+                      <FormattedMessage id={'header.login'}/>
+                  </a>
+                </Link>
+                <Link href={'/register'} passHref>
+                  <a
+                    className="px-3 py-2 rounded-md text-sm font-medium mx-[35px] cursor-pointer no-underline text-green-50 bg-green-500"
+                  >
+                    <FormattedMessage id={'title.register'}/>
+                  </a>
+                </Link>
+              </div>
+              )}
+          </Disclosure.Panel>
+        </>
+      )}
+    </Disclosure>
   )
-} */
+}
+
+
+function Dropdowns({children}) {
+  return (
+    <Menu as="div" className="relative inline-block text-right">
+      <div>
+        <Menu.Button className="flex w-full items-center text-white justify-center rounded-md border-0 border-gray-300 bg-red-500 px-4 py-2 text-sm font-medium shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
+          <Image src={'/svg/menu-burger-free-icon-font.svg'} width={18.5} height={18.5} alt={'Feature'} />
+          <span className="mx-2"><FormattedMessage id={'meun'}/></span>
+        </Menu.Button>
+      </div>
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <Menu.Items className="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div className="py-1">
+            {children}
+          </div>
+        </Menu.Items>
+      </Transition>
+    </Menu>
+  )
+}

@@ -2,7 +2,7 @@ import { FormattedMessage } from 'react-intl';
 
 export default function Tag({items}) {
     return (
-        <section className="bg-[url('/svg/pattern-white.svg')] bg-left-top bg-no-repeat py-4">
+        <section className="bg-[url('/svg/pattern-white.svg')] bg-top py-4">
             <div className="md:max-w-5xl mx-auto mb-8 md:mb-16 text-center">
                 <h3 style={{ fontFamily: "Montserrat-Bold"}} className="mb-4 text-3xl md:text-5xl leading-tight text-darkCoolGray-900 font-bold tracking-tighter"><FormattedMessage id={'tag.title'} /></h3>
                 <p style={{ fontFamily: "Montserrat-Light"}} className="mb-10 text-lg md:text-xl text-coolGray-500 font-medium"><FormattedMessage id={'tag.sub'} /></p>

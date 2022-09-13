@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Feature() {
     return (
-    <section id="feature" className="py-[18px] md:pb-2 bg-[url('/svg/pattern-white.svg')] bg-center">
+    <section id="feature" className="py-[18px] md:pb-2 bg-[url('/svg/pattern-white.svg')] bg-top">
         <div className="container px-4 mx-auto">
             <div className="md:max-w-4xl mb-12 mx-auto text-center">
             <h1 style={{ fontFamily: "Montserrat-Bold"}} className="mb-4 text-3xl text-[#313131] md:text-4xl leading-tight font-bold tracking-tighter">
