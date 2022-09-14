@@ -155,7 +155,14 @@ export default function Navbar() {
               ))}
             </div>
             {loggedIn? (         
-              <div className="flex space-x-4">
+              <div className="flex space-y-4 flex-col">
+                <Link href={'/profile'} passHref>
+                  <a
+                    className="px-3 py-2 rounded-md text-sm font-medium mx-[35px] cursor-pointer no-underline text-green-500 bg-green-100"
+                  >
+                    <FormattedMessage id={'drawer.profile'}/>
+                  </a>
+                </Link>
                 <Link href={'/settings'} passHref>
                   <a
                     className="px-3 py-2 rounded-md text-sm font-medium mx-[35px] cursor-pointer no-underline text-green-500 bg-green-100"

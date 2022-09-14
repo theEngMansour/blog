@@ -6,10 +6,10 @@ import createEmotionCache from '../src/createEmotionCache';
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="ar">
         <Head>
           {/* PWA primary color */}
-          <meta name="theme-color" content="#d70133" />
+          <meta name="theme-color" content="#ef4444" />
           <link rel="shortcut icon" href="/static/favicon.ico" />
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {this.props.emotionStyleTags}

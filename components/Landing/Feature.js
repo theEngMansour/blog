@@ -6,11 +6,11 @@ export default function Feature() {
     <section id="feature" className="py-[18px] md:pb-2 bg-[url('/svg/pattern-white.svg')] bg-top">
         <div className="container px-4 mx-auto">
             <div className="md:max-w-4xl mb-12 mx-auto text-center">
-            <h1 style={{ fontFamily: "Montserrat-Bold"}} className="mb-4 text-3xl text-[#313131] md:text-4xl leading-tight font-bold tracking-tighter">
-                <FormattedMessage id={'feature.header'}/>
-                <span className="text-red-500 border-0 border-solid"> <FormattedMessage id={'feature.sub'}/></span>
-            </h1>
-            <p style={{ fontFamily: "Montserrat-Light"}} className="text-lg md:text-xl text-gray-600 font-medium m-0"><FormattedMessage id={'feature.subheader'}/></p>
+                <h1 style={{ fontFamily: "Montserrat-Bold"}} className="mb-4 text-3xl md:text-5xl text-[#313131] leading-tight font-bold tracking-tighter">
+                    <FormattedMessage id={'feature.header'}/>
+                    <span className="text-red-500 border-0 border-solid"> <FormattedMessage id={'feature.sub'}/></span>
+                </h1>
+                <p style={{ fontFamily: "Montserrat-Light"}} className="text-lg md:text-xl text-gray-600 font-medium m-0"><FormattedMessage id={'feature.subheader'}/></p>
             </div>
             <div className="flex flex-wrap -mx-4">
             <div className="w-full md:w-1/2 lg:w-1/3 px-4">
