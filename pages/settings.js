@@ -7,7 +7,7 @@ import Head from 'next/head';
 import { AuthLayout } from 'layouts';
 import { useProfile } from 'hooks/useAuth';
 import { AuthContext } from 'layouts/AuthContext';
-import { Avatar, Details, Dashboard } from 'components/profile';
+import { Avatar, Details } from 'components/profile';
 import { Model } from 'components';
 import { useIntl } from 'react-intl';
 import { usePhotoGallery } from 'hooks/usePhotoGallery';
@@ -53,7 +53,7 @@ export default function Profile() {
     return (
         <Authenticated>
             <Head>
-                <title>{formatMessage({id: 'title.profile'})}</title>
+                <title>{formatMessage({id: 'drawer.settings'})}</title>
             </Head>
             <Model title={'model.title'} description={'model.description'} open={showAlert} close={setShowAlert} acceptor={onSubmit} />
             <AuthLayout title="title.profile">

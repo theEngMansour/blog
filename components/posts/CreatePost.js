@@ -71,16 +71,7 @@ export default function CreatePost(props) {
 
     return (
         <React.Fragment>
-        <div className="max-w-screen-xl px-4 pb-16 pt-0 mx-auto sm:px-6 lg:px-8">
-            <div className="max-w-lg mx-auto text-center">
-                <Image src="/logo/now-logo.svg" className="m-0" width={'200px'} height={'150px'} alt="logo"/>     
-                <h1 style={{ fontFamily: "Jannat"}} className="text-2xl text-[#57be6d] font-bold sm:text-3xl m-0">
-                    <FormattedMessage id={'title.ask'}/>
-                </h1>
-                <p className="mt-1 text-[gray]-500">
-                    <FormattedMessage id={'create.welcome'}/>
-                </p>
-            </div>
+        <div className="max-w-screen-xl px-4 pb-16 pt-0 mx-auto sm:px-6 lg:px-8 m-0">
             <div className="max-w-lg mx-auto text-center">
                 {alert.photos && (
                     <Alert 
@@ -102,7 +93,7 @@ export default function CreatePost(props) {
                     <div className="relative">
                         <input
                             type="text"
-                            className="w-full p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-[#57be6d] text-gray-500"
+                            className="w-full p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-[#ef4444] text-gray-500"
                             placeholder={
                                 formatMessage({
                                     id: 'title'
@@ -116,7 +107,7 @@ export default function CreatePost(props) {
                     <div className="relative">
                         <input
                             type="text"
-                            className="w-full p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-[#57be6d] text-gray-500"
+                            className="w-full p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-[#ef4444] text-gray-500"
                             placeholder={
                                 formatMessage({
                                     id: 'content'
@@ -152,14 +143,14 @@ export default function CreatePost(props) {
                     :
                     <div className="mx-auto cursor-pointer flex w-full max-w-lg flex-col items-center rounded-xl border-[2px] border-dashed border-[#ccdbd3] bg-white text-center p-9">
                         <Image src="/svg/upload.svg" className="m-0" width={'50px'} height={'50px'} alt="logo"/>
-                        <h2 style={{ fontFamily: "Jannat"}} className="text-xl font-semibold text-[#57be6d] tracking-wide m-0 select-none">
+                        <h2 style={{ fontFamily: "Montserrat-Bold"}} className="text-xl font-semibold text-red-500 tracking-wide m-0 select-none mt-3">
                             {
                                 formatMessage({
                                     id: 'upload.image'
                                 })
                             }
                         </h2>
-                        <p style={{ fontFamily: "Jannat"}} className="text-gray-500 tracking-wide m-0 select-none">
+                        <p style={{ fontFamily: "Montserrat-light"}} className="text-gray-500 tracking-wide m-0 select-none">
                             {
                                 formatMessage({
                                     id: 'upload.image.sub'
@@ -173,7 +164,7 @@ export default function CreatePost(props) {
                 <div className="flex items-center justify-end">
                     <button type="submit"
                         onClick={validator}
-                        className="inline-block hover:bg-[#f8931f] px-5 py-3 ml-3 text-sm font-medium text-white bg-[#57be6d] rounded-lg outline-none border-0">
+                        className="inline-block hover:bg-[#f8931f] px-5 py-3 ml-3 text-sm font-medium text-white bg-[#ef4444] rounded-lg outline-none border-0">
                         {
                             formatMessage({
                                 id: 'is.ok'

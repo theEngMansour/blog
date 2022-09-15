@@ -98,10 +98,11 @@ const UserDetails = (props) => {
                         <Skeleton variant="rectangular" animation="wave" className="bg-gray-200" width={'40%'} height={55} />
                         :
                         <Button 
-                            className="mt-4 w-[40%] text-white hover:bg-[#44c455]"
+                            className="mt-4 w-[40%] text-white hover:bg-[#d13e3e]"
                             type="submit"
                             variant="contained"
                             color="primary"
+                            style={{ fontFamily: "Montserrat-light"}}
                             disabled={disabled}
                             onClick={handleClick(TransitionDown)}
                         >

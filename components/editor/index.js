@@ -32,7 +32,7 @@ export default function TextEditor(props) {
             props.onToggle(props.style)
         }
         return (
-            <div onMouseDown={onClickButton} style={{ fontFamily: "Jannat"}} 
+            <div onMouseDown={onClickButton}
                 className="m-1 select-none text-black bg-white uppercase px-5 py-1.5 rounded-full text-[10px] tracking-wide hover:outline hover:outline-2 hover:outline-[#f8931f]">
                 {props.label}
             </div>
@@ -89,6 +89,7 @@ export default function TextEditor(props) {
             </span>
             <div onClick={focusEditor} className="w-full bg-white p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-[#57be6d] mt-4">
                 <Editor 
+                    style={{ fontFamily: "Montserrat-Light"}}
                     ref={editor}
                     editorState={editorState} 
                     onChange={(editorState) => {

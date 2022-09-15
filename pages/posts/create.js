@@ -4,6 +4,8 @@ import { AuthContext } from 'layouts/AuthContext';
 import { CreatePost } from 'components/posts';
 import { create } from 'hooks/usePost';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 export default function Create() {
     const [title, setTitle] = useState()
@@ -17,6 +19,8 @@ export default function Create() {
     const {jwt} = useContext(AuthContext)
     const router = useRouter()
 
+    const { formatMessage } = useIntl()
+    
     const onSubmit = async () => {
         const postData = new FormData();
         postData.append('title', title)
@@ -59,6 +63,9 @@ export default function Create() {
     }, [title, contents, steps])
     return (
         <Authenticated>
+            <Head>
+                <title>{formatMessage({id: 'title.ask'})}</title>
+            </Head>
             <CreatePost 
                 title={setTitle} 
                 contents={setContents}

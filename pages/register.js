@@ -114,7 +114,7 @@ export default function Register() {
                 }
                 <div className="flex justify-center my-9">
                     <Avatar 
-                        className="bg-[#45b97c]"
+                        className="bg-[#ef4444]"
                         alt="Mansour Ahmed"
                         sx={{ width: 100, height: 100 }}
                     >
@@ -173,7 +173,7 @@ export default function Register() {
                             />
                             <div className="flex justify-center">
                                 <Button 
-                                    className="mt-4 w-[40%] text-white hover:bg-[#44c455]"
+                                    className="mt-4 w-[40%] text-white hover:bg-[#d83e3e]"
                                     type="submit"
                                     variant="contained"
                                     color="primary"

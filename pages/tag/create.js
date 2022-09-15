@@ -3,6 +3,8 @@ import { Authenticated } from 'layouts';
 import { Alert } from '@mui/material'
 import { tag } from 'hooks/useTags'
 import { useRouter } from 'next/router';
+import { FormattedMessage, useIntl } from 'react-intl';
+import Head from 'next/head';
 
 export default function Tag() {
     const router = useRouter()
@@ -12,6 +14,7 @@ export default function Tag() {
         description: ''
     })
     const [alert, setAlert] = useState([])
+    const { formatMessage } = useIntl()
 
     const changeFormValue = (key, event) => {
         setData({...data, [key]: event.target.value});
@@ -62,28 +65,65 @@ export default function Tag() {
 
     return (
         <Authenticated>
-            {alert.map((alert, index) => (
-                <Alert key={index} severity='error' sx={{mb:2}}>
-                    {alert}
-                </Alert>
-            ))}
-
+            <Head>
+                <title>{formatMessage({id: 'drawer.settings'})}</title>
+            </Head>
             <div className="min-h-screen md:px-20 pt-6">
-                <div className=" bg-white rounded-md px-6 py-10 max-w-2xl mx-auto">
-                <h1 className="text-center text-2xl font-bold text-gray-500 mb-10">إضافة التصنيف</h1>
-                <div className="space-y-4">
-                    <div>
-                    <label className="text-lx">إسم التصنيف :</label>
-                    <input type="text" placeholder="إسم التصنيف" onChange={(text) => changeFormValue('name', text)} id="title" className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md" />
-                    <label className="text-lx">إسم لطيف :</label>
-                    <input type="text" placeholder="إسم لطيف" onChange={(text) => changeFormValue('slug', text)} id="title" className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md" />
+                <div className="rounded-md px-6 max-w-2xl mx-auto">
+                    {alert.map((alert, index) => (
+                        <Alert key={index} severity='error' sx={{mb:2}}>
+                            {alert}
+                        </Alert>
+                    ))}
+                    <div className="space-y-4">
+                        <div className="relative">
+                            <input
+                                type="text"
+                                className="w-full p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-[#ef4444] text-gray-500"
+                                placeholder={
+                                    formatMessage({
+                                        id: 'title.tag'
+                                    })
+                                }
+                                onChange={(text) => changeFormValue('name', text)}
+                            />
+                        </div>
+                        <div className="relative">
+                            <input
+                                type="text"
+                                className="w-full p-4 pr-7 text-sm rounded-lg shadow-sm border-0 focus:outline-[#ef4444] text-gray-500"
+                                placeholder={
+                                    formatMessage({
+                                        id: 'slug'
+                                    })
+                                }
+                                onChange={(text) => changeFormValue('slug', text)}
+                            />
+                        </div>
+                        <div className="relative">
+                            <input
+                                type="text"
+                                className="w-full p-4 pr-7 h-36 text-sm rounded-lg shadow-sm border-0 focus:outline-[#ef4444] text-gray-500"
+                                placeholder={
+                                    formatMessage({
+                                        id: 'description.tag'
+                                    })
+                                }
+                                onChange={(text) => changeFormValue('description', text)}
+                            />
+                        </div>
+                        <div className="flex items-center justify-end">
+                            <button type="submit"
+                                onClick={onSubmit}
+                                className="inline-block hover:bg-[#f8931f] px-5 py-3 ml-3 text-sm font-medium text-white bg-[#ef4444] rounded-lg outline-none border-0">
+                                {
+                                    formatMessage({
+                                        id: 'is.ok'
+                                    })
+                                }
+                            </button>
+                        </div>
                     </div>
-                    <div>
-                    <label className="block mb-2 text-lg ">الوصف:</label>
-                    <textarea id="description" cols="30" rows="10" onChange={(text) => changeFormValue('description', text)} placeholder="أكتب الوصف" className="w-full p-4 text-gray-600 bg-indigo-50 outline-none rounded-md"></textarea>
-                    </div>
-                    <button className="px-6 py-2 mx-auto block rounded-md text-lg text-indigo-100 bg-blue-900" onClick={onSubmit}>إضافة التصنيف</button>
-                </div>
                 </div>
             </div>
         </Authenticated>

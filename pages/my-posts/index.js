@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import Head from 'next/head';
-import { Button } from '@mui/material';
 import { AuthContext } from 'layouts/AuthContext';
 import { useMyPosts } from 'hooks/usePost';
 import { Authenticated, MainLayout } from 'layouts';
@@ -15,21 +14,21 @@ export default function Index() {
     const {data, loading} = useMyPosts(jwt)
     const { formatMessage } = useIntl()
    
-    if(loading) return <h1>Loading</h1>
+    if(loading) return <h1>Loading ...</h1>
    
     return (
         <Authenticated>
             <Head>
-                <title>{formatMessage({id: 'title.profile'})}</title>
+                <title>{formatMessage({id: 'my.posts'})}</title>
             </Head>
-            <MainLayout>
+            <div>
             {data?.length > 0 ? (
                 <React.Fragment>
                     <MyPost items={data || []} />
                 </React.Fragment>
                 ) : (<NoPost />)
             }
-            </MainLayout>
+            </div>
         </Authenticated>
     )
 }
