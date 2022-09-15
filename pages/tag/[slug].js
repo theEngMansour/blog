@@ -25,8 +25,8 @@ export default function Show({params}) {
       <Head>
         <title>{tag?.item.name}</title>
       </Head>
-      <Box>
-        <Typography variant="h5">
+      <Box className="mt-14 mb-8">
+        <Typography style={{ fontFamily: "Montserrat-Bold"}} variant="h5">
           {tag?.item.name}
         </Typography>
       </Box>
@@ -36,7 +36,7 @@ export default function Show({params}) {
           tag?.item.posts.map((e) =>
             <Grid item sm={4} xs={6} key={e.id}>
               <Link passHref href={`/posts/${e.post.id}`}>
-                  <Card variant="outlined">
+                  <Card variant="outlined" className="my-3">
                     <CardActionArea>
                       <CardContent>
                         <Typography variant="h6" color="primary">

@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image'
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import Settings from './settings';
 import Create from './posts/create';
@@ -64,6 +65,11 @@ export default function Profile() {
             </div>
           </div>
         </div>
+        <Link href={`/`} passHref>
+          <button className="flex w-50 items-center text-white justify-center rounded-md border-0 border-gray-300 bg-red-500 px-4 py-2 text-sm font-medium shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
+            <Image src={'/svg/arrow-small-right-free-icon-font.svg'} width={17.5} height={17.5} alt={'Feature'} />
+          </button>
+        </Link>
       </div>
       <BasicTabs value={setValue}/>
     </Authenticated>

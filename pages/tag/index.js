@@ -19,17 +19,9 @@ export default function Tags() {
 
     return (
         <MainLayout title="التصنيفات">
- 
             <Head>
                 <title>التصنيفات</title>
             </Head>
-            <Box sx={{float: 'right', mt: 2}}>
-                <Link href={'/tag/create'} passHref>
-                    <Button color={'primary'} variant={'contained'} disableElevation size='small'>
-                        إضافة التصنيف
-                    </Button>
-                </Link>
-            </Box>
             { loading ? (
                 <Grid container spacing={3}>
                     {
@@ -46,10 +38,10 @@ export default function Tags() {
                             tags.map(({ id, name, slug, description }) =>
                                 <Grid item sm={4} xs={12} key={id}>
                                     <Link passHref href={`tag/${slug}?id=${id}`}>
-                                        <Card variant="outlined">
+                                        <Card variant="outlined" className="mt-11">
                                             <CardActionArea>
                                                 <CardContent>
-                                                    <Typography variant="h6" color="primary">
+                                                    <Typography style={{ fontFamily: "Montserrat-Bold"}} variant="h6" color="primary">
                                                         {name}
                                                     </Typography>
                                                     <Typography variant="body2">
@@ -63,11 +55,10 @@ export default function Tags() {
                             )
                         }
                     </Grid>
+
                 )
             }
-                
-           
- 
+           <br></br>
         </MainLayout>
     )
 }

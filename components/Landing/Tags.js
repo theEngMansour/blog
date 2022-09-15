@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { FormattedMessage } from 'react-intl';
 
 export default function Tag({items}) {
@@ -24,6 +25,11 @@ export default function Tag({items}) {
                     )}
                 </div>
             </div>
+            <Link href={`/tag`} passHref>
+                <button className="flex border-0 items-center justify-center py-2 px-4 mx-auto text-sm leading-5 text-red-50 font-medium bg-red-500 hover:bg-red-600 focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 md:max-w-max rounded-md mt-10">
+                    <span className="mx-3"><FormattedMessage id={'blog.browser'} /></span>
+                </button>
+            </Link>
         </section>
     )
 }
