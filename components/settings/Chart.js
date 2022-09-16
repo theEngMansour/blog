@@ -55,22 +55,17 @@ const data = {
 export default function Chart() {
   return (
     <React.Fragment>
-        <section>
-            <div className="container px-4 mx-auto">
-                <div className="flex flex-wrap -m-3">
-                    {/* Start */}
-                    <div className="w-full h-80 p-3">
-                        <div className="bg-white border border-coolGray-100 rounded-md shadow-sm select-none h-[100px] m-0 flex items-center justify-between px-8">
-                            <Line
-                                data={data}
-                                width={400}
-                                height={400}
-                            />
-                        </div>
-                    </div>
+        <div className="container px-4 mx-auto">
+            <div className="w-full h-full p-3">
+                <div className="bg-white border border-coolGray-100 rounded-md shadow-sm select-none m-0 p-8">
+                    <Line
+                        data={data}
+                        width={200}
+                        height={100}
+                    />
                 </div>
             </div>
-        </section>       
+        </div>      
     </React.Fragment>
   );
 }
