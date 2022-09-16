@@ -1,5 +1,4 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import { Line } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
@@ -47,7 +46,7 @@ const data = {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [65, 59, 80, 81, 56, 55, 40]
+        data: [2, 2, 80, 81, 56, 55, 40]
       }
     ]
 };
@@ -55,7 +54,7 @@ const data = {
 export default function Chart() {
   return (
     <React.Fragment>
-        <div className="container px-4 mx-auto">
+        <div className="px-4 mx-auto">
             <div className="w-full h-full p-3">
                 <div className="bg-white border border-coolGray-100 rounded-md shadow-sm select-none m-0 p-8">
                     <Line
