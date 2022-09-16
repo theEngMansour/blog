@@ -1,13 +1,14 @@
 import React from 'react';
-import { useEffect, useContext } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import prisma from 'lib/prisma';
+import useTag from 'hooks/useTags';
+import Image from 'next/image';
+import { useEffect, useContext } from 'react';
 import { MainLayout } from 'layouts';
 import { useRouter } from 'next/router';
 import { useSWRConfig } from 'swr';
 import { Box, Typography, Grid, Card, CardActionArea, CardContent } from '@mui/material';
-import useTag from 'hooks/useTags'
 
 export default function Show({params}) {
   const router = useRouter();
@@ -30,7 +31,11 @@ export default function Show({params}) {
           {tag?.item.name}
         </Typography>
       </Box>
- 
+      <Link href={`/tag`} passHref>
+        <button className="flex w-50 m-5 items-center text-white justify-center rounded-md border-0 border-gray-300 bg-red-500 px-4 py-2 text-sm font-medium shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
+          <Image src={'/svg/arrow-small-right-free-icon-font.svg'} width={17.5} height={17.5} alt={'Feature'} />
+        </button>
+      </Link>
       <Grid container spacing={3} >
         {
           tag?.item.posts.map((e) =>

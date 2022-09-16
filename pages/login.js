@@ -60,6 +60,8 @@ export default function Login() {
           <title>{formatMessage({id: 'title.login'})}</title>
         </Head>
         <Loading open={showLoading} />
+        <br></br>
+        <br></br>
         <AuthLayout title="title.login">
           {showAlert &&
             <Alert 

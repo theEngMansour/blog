@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import moment from 'site-settings/moment';
+import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Like } from 'components/like';
 import { Comment } from 'components/comment';
@@ -28,47 +29,48 @@ export default function ShowPost({ item = []}) {
 
     return (
         <React.Fragment>
-            <div className="relative z-10 overflow-hidden rounded bg-primary md:p-[50px] bg-white">
-                <div className="flex flex-wrap items-center">
-                    <Swiper {...swiper_settings} modules={[Pagination, Navigation, Autoplay]}>   
-                        {item?.images?.map((img) => {
-                            return (
-                                <SwiperSlide key={img.id}>
-                                    <div className="flex justify-center">
-                                     <Image src={img.img_uri} width={'300px'} height={'300px'} alt={img.img_uri} />
-                                    </div>
-
-                                </SwiperSlide>
-                            )
-                        })}
-                    </Swiper>
-                    <div className="w-full px-4">
+            <section className="py-16 md:py-24 bg-white">
+                <div className="container px-4 mx-auto">
+                    <Link href={`/posts`} passHref>
+                        <button className="flex w-50 m-5 items-center text-white justify-center rounded-md border-0 border-gray-300 bg-red-500 px-4 py-2 text-sm font-medium shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
+                            <Image src={'/svg/arrow-small-right-free-icon-font.svg'} width={17.5} height={17.5} alt={'Feature'} />
+                        </button>
+                    </Link>
+                    <div className="md:max-w-2xl mx-auto mb-12 text-center">
+                        <h2 className="mb-4 text-3xl md:text-5xl leading-tight text-darkCoolGray-900 font-bold tracking-tighter">{item?.title}</h2>
+                        <p className="inline-block text-[#ef4444] font-medium">{moment(item?.createdAt).fromNow()}</p>
+                    </div>
+                    <div className="mb-10 mx-auto max-w-max overflow-hidden rounded-lg">
+                        <Swiper {...swiper_settings} modules={[Pagination, Navigation, Autoplay]}>   
+                            {item?.images?.map((img) => {
+                                return (
+                                    <SwiperSlide key={img.id}>
+                                        <div className="flex justify-center">
+                                        <Image src={img.img_uri} width={'300px'} height={'300px'} alt={img.img_uri} />
+                                        </div>
+                                    </SwiperSlide>
+                                )
+                            })}
+                        </Swiper>
+                    </div>
+                    <div className="md:max-w-3xl mx-auto">
                         <Like sendToParent={setLikeCount} />
                         <div className="m-0">
                             <p className="m-0">{likeCount} إعجاب</p>
                         </div>
-                        <h2
-                            className="mb-6 font-[Jannat] text-3xl font-bold leading-tight text-[#20C67B] sm:mb-8 sm:text-[38px] lg:mb-0 mt-0 select-none"
-                        >
-                            {item?.title}
-                            <br className="hidden xs:block" />
-                        </h2>
-                        <span className="mb-2 text-base font-semibold text-[#f3b121] selection:bg-[#44c455] selection:text-white">
-                            {moment(item?.createdAt).fromNow()}
-                        </span>
-                        <h3 className="m-0 mt-4 font-bold text-[#20C67B] font-[Jannat]">المحتوى</h3>
-                        <p>{item?.contents}</p>
-                        <h3 className="m-0 mt-4 font-bold text-[#20C67B] font-[Jannat]">ملخص</h3>
-                        <Editor editorState={steps} readOnly={true} />
+                        <p className="mb-4 text-base md:text-lg text-coolGray-500">{item?.contents}</p>
+                        <ol className="list-decimal list-inside md:px-5 mb-14 text-base md:text-lg text-coolGray-500">
+                            <Editor editorState={steps} readOnly={true} />
+                        </ol>
                         <div className="flex">
-                            <p className="ml-5 font-semibold text-[#20C67B] font-[Jannat]">{item?.country}</p>
-                            <p className="ml-5 font-semibold text-[#f3b121] font-[Jannat]">{item?.region}</p>
+                            <p className="ml-5 font-semibold text-[#ef4444] font-[Jannat]">{item?.country}</p>
+                            <p className="ml-5 font-semibold text-[#ef4444] font-[Jannat]">{item?.region}</p>
                         </div>
                         <Comment />
                     </div>
                 </div>
-
-            </div>
+            </section>
         </React.Fragment>
     )
 }
+

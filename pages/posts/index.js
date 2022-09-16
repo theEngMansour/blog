@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-import Head from 'next/head';
-
+import React from 'react';
 import { MainLayout } from 'layouts';
 import { usePosts } from 'hooks/usePost';
 import { Posts, Pages } from 'components/posts'
 import { useRouter } from 'next/router';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 
 export default function Index() {
   const router = useRouter();
@@ -14,9 +12,6 @@ export default function Index() {
   const { formatMessage } = useIntl()
   return (
     <MainLayout>
-      <Head>
-        <title>{formatMessage({id: 'title.profile'})}</title>
-      </Head>
       {loading 
       ?
       <h1>Loading !</h1>

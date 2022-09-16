@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import Image from 'next/image'
+import Image from 'next/image';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import Settings from './settings';
@@ -11,11 +11,14 @@ import { Authenticated } from 'layouts';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Dashboard, Chart } from 'components/settings';
 import { Tabs, Tab, Typography, Box } from '@mui/material';
+import { useState, useContext } from 'react';
+import { AuthContext } from 'layouts/AuthContext';
+import { useDashboard } from 'hooks/useDashboard';
 
 export default function Profile() {
-  const [value, setValue] = React.useState(0);
-  const [title, setTitle] = React.useState();
-  const [subtitle, setSubTitle] = React.useState();
+  const [value, setValue] = useState(0);
+  const [title, setTitle] = useState();
+  const [subtitle, setSubTitle] = useState();
   const { formatMessage } = useIntl()
 
   React.useEffect(() => {
@@ -120,6 +123,9 @@ function BasicTabs(props) {
     setValue(newValue);
   };
 
+  const { jwt } = useContext(AuthContext)
+  const { data } = useDashboard(jwt)
+
   return (
     <Box sx={{ width: '100%' }}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -132,7 +138,7 @@ function BasicTabs(props) {
             </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          <Dashboard />
+          <Dashboard data={data} />
           <Chart />
         </TabPanel>
         <TabPanel value={value} index={1}>

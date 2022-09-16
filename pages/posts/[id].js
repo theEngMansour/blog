@@ -23,7 +23,7 @@ export default function Show({params}) {
     return (
         <div>
             <Head>
-                <title>{formatMessage({id: 'title.profile'})}</title>
+                <title>{post?.title}</title>
             </Head>
             {loading
             ?

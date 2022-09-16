@@ -18,25 +18,29 @@ const Authenticated = (props) => {
         )
     } else {
         return (
-            <AuthLayout title="login.check">
-                <Alert 
-                    type="warning" 
-                    title={401}
-                    text={formatMessage({id: 'login.check.title', defaultMessage: 'login.check.title'})}
-                />
-                <div className="flex justify-center">
-                    <Link href={'/login'} passHref>
-                        <Button 
-                            className="mt-4 text-white bg-[#44c455]"
-                            type="submit"
-                            variant="contained"
-                            color="primary"
-                        >
-                            <FormattedMessage id={'header.login'}/>
-                        </Button>
-                    </Link>
-                </div>
-            </AuthLayout>
+            <React.Fragment>
+                <br></br>
+                <br></br>
+                <AuthLayout title="login.check">
+                    <Alert 
+                        type="warning" 
+                        title={401}
+                        text={formatMessage({id: 'login.check.title', defaultMessage: 'login.check.title'})}
+                    />
+                    <div className="flex justify-center mt-40">
+                        <Link href={'/login'} passHref>
+                            <Button 
+                                className="mt-4 text-white bg-red-500"
+                                type="submit"
+                                variant="contained"
+                                color="primary"
+                            >
+                                <FormattedMessage id={'header.login'}/>
+                            </Button>
+                        </Link>
+                    </div>
+                </AuthLayout>
+            </React.Fragment>
         )
     }
 }

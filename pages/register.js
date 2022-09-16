@@ -97,6 +97,8 @@ export default function Register() {
                 <title>{formatMessage({id: 'title.register'})}</title>
             </Head>
             <Loading open={loading} /* handleClose={handleClose} */ />
+            <br></br>
+            <br></br>
             <AuthLayout title="title.register">
                 {showAlert.error &&
                     <Alert 
