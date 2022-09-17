@@ -24,17 +24,17 @@ export default function HowWork() {
             <div className="flex flex-wrap -mx-4">
                 <div className="w-full md:w-1/2 px-4 mb-16 md:mb-0">
                     <div className="relative mx-auto md:ml-0 max-w-max">
-                    <Swiper {...swiper_settings} modules={[Pagination, Navigation, Autoplay]}>   
-                <SwiperSlide> 
-                  <Image src={'/foods/1.png'} width={'3508'} height={'2492'} alt={'food'} />
-                </SwiperSlide>
-                <SwiperSlide> 
-                  <Image src={'/foods/2.png'} width={'3508'} height={'2492'} alt={'food'} />
-                </SwiperSlide>
-                <SwiperSlide> 
-                  <Image src={'/foods/3.png'} width={'3508'} height={'2492'} alt={'food'} />
-                </SwiperSlide>
-              </Swiper>
+                        <Swiper {...swiper_settings} modules={[Pagination, Navigation, Autoplay]}>   
+                            <SwiperSlide> 
+                            <Image src={'/steps/login-sign.png'} width={'3508'} height={'2492'} alt={'food'} />
+                            </SwiperSlide>
+                            <SwiperSlide> 
+                            <Image src={'/steps/my-posts.png'} width={'3508'} height={'2492'} alt={'food'} />
+                            </SwiperSlide>
+                            <SwiperSlide> 
+                            <Image src={'/steps/logo.png'} width={'3508'} height={'2492'} alt={'food'} />
+                            </SwiperSlide>
+                        </Swiper>
                     </div>
                 </div>
                 <div dir='rtl' className="w-full md:w-1/2 px-4">

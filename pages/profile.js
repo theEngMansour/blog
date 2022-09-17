@@ -139,7 +139,7 @@ function BasicTabs(props) {
         </Box>
         <TabPanel value={value} index={0}>
           <Dashboard data={data} />
-          <Chart />
+          <Chart item={data} />
         </TabPanel>
         <TabPanel value={value} index={1}>
           <MyPost />
