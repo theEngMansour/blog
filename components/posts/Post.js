@@ -18,7 +18,7 @@ export default function Posts({ items = []}) {
                         {items.map((post) => 
                             <div key={post.id} className="w-full md:w-1/2 px-4 mb-8">
                                 <span className="block mb-6 overflow-hidden rounded-md">
-                                    <Image src={post.images[0].img_uri} width={'100%'} height={'100%'} alt={post.title} />
+                                    <Image src={post.images[0].img_uri} width={'1024px'} height={'576px'} alt={post.title} />
                                 </span>
                                 <div className="mb-4">
                                     {post.tags.map(tag => 

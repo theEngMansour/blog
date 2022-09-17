@@ -37,7 +37,7 @@ export default function Posts({ items = []}) {
                                     <Image src={'/svg/apps-free-icon-font.svg'} width={16.5} height={16.5} alt={'Feature'} />
                                 </button>
                                 <span className="block mb-6 overflow-hidden rounded-md">
-                                    <Image src={post.images[0].img_uri} width={'100%'} height={'100%'} alt={post.title} />
+                                    <Image src={post.images[0].img_uri} width={'1024px'} height={'576px'} alt={post.title} />
                                 </span>
                                 <p style={{ fontFamily: "Montserrat-Light"}} className="mb-2 text-coolGray-500 font-medium">{moment(post.createdAt).fromNow()}</p>
                                 <p style={{ fontFamily: "Montserrat-Bold"}} className="selection:bg-red-500 selection:text-white inline-block mb-4 text-2xl leading-tight text-coolGray-800 hover:text-coolGray-900 font-bold">{post.title}</p>
