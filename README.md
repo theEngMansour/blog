@@ -1,3 +1,3 @@
 ## BeeMedia Team 
 
-<img src='https://suar.me/aNdqd/embed' width='800'/>
+<img src="https://i.suar.me/aNdqd/m" width='800'/>
